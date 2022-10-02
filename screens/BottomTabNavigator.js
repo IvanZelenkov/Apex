@@ -1,17 +1,27 @@
-import { StyleSheet } from 'react-native';
+import {ActivityIndicator, StyleSheet} from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useFonts } from 'expo-font';
 
 import CryptoScreen from './CryptoScreen';
 import FavoriteCryptoScreen from './FavoriteCryptoScreen';
-import ScannerScreen from './ScannerScreen';
-import ProfileScreen from './ProfileScreen';
+import MessengerScreen from './MessengerScreen';
+import CalculatorsScreen from './CalculatorsScreen';
 import NewsScreen from './NewsScreen';
 import SettingsScreen from './SettingsScreen';
+import React from "react";
 
 const Tab = createMaterialBottomTabNavigator();
 
 export default function BottomTabNavigator() {
+    let [fontsLoaded] = useFonts({
+        'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
+    });
+
+    if (!fontsLoaded) {
+        return <ActivityIndicator size={'large'} />
+    }
+
 	return (
         <Tab.Navigator initialRouteName="CryptoScreen" activeColor="black" inactiveColor="white" barStyle={styles.bottomTab}>
             <Tab.Screen name="CryptoScreen" component={CryptoScreen} options={{tabBarLabel: 'Crypto', tabBarColor: "dodgerblue", tabBarIcon: ({ color }) => (
@@ -22,12 +32,12 @@ export default function BottomTabNavigator() {
                     <MaterialCommunityIcons name="star-outline" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="Scanner" component={ScannerScreen} options={{ tabBarLabel: 'Scanner', tabBarColor: "#B90000", tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="qrcode-scan" color={color} size={24}/>
+            <Tab.Screen name="MessengerScreen" component={MessengerScreen} options={{ tabBarLabel: 'Messenger', tabBarColor: "#3B8F0D", tabBarIcon: ({ color }) => (
+                    <MaterialCommunityIcons name="message-text" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarLabel: 'Profile', tabBarColor: "#FF0000", tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="account-circle" color={color} size={24}/>
+            <Tab.Screen name="CalculatorsScreen" component={CalculatorsScreen} options={{ tabBarLabel: 'Calculators', tabBarColor: "#F98E07", tabBarIcon: ({ color }) => (
+                    <MaterialCommunityIcons name="calculator-variant" color={color} size={24}/>
                 )}}
             />
             <Tab.Screen name="NewsScreen" component={NewsScreen} options={{ tabBarLabel: 'News', tabBarColor: "#FF0000", tabBarIcon: ({ color }) => (

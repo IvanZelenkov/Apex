@@ -1,11 +1,11 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, RefreshControl } from 'react-native';
+import { StyleSheet, Text, View, FlatList, SafeAreaView, RefreshControl, ActivityIndicator } from 'react-native';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { useFonts } from 'expo-font';
 
 import Chart from "../components/Chart";
 import CurrencyItem from '../components/CurrencyItem';
-import { getMarketData, getCryptoNews } from '../services/cryptoRequest';
-import { logger } from 'react-native-logs';
+import { getMarketData } from '../services/cryptoRequest';
 
 const Header = () => (
 	<>
@@ -41,20 +41,24 @@ export default function CryptoScreen() {
 		setLoading(false);
 	}
 
-	// let log = logger.createLogger();
-
-	// const refreshCrypto2 = async () => {
-	// 	log.info(getCryptoNews());
-	// }
-
 	const openModal = (item) => {
 		setSelectedCurrencyData(item);
 		bottomSheetModalRef.current.present();
 	};
 
+	let [fontsLoaded] = useFonts({
+		'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
+		'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+		'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf')
+	});
+
 	useEffect(() => {
 		fetchCrypto();
 	}, []);
+
+	if (!fontsLoaded) {
+		return <ActivityIndicator size={'large'} />
+	}
 
 	return (
 		<BottomSheetModalProvider style={styles.bottomSheetWrapper}>
@@ -117,7 +121,9 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		fontWeight: "900",
 		fontStyle: "italic",
-		color: "#1e90ff"
+		color: "#1e90ff",
+		fontFamily: 'Montserrat-SemiBold',
+		letterSpacing: 5
 	},
 	breaker: {
 		height: StyleSheet.hairlineWidth,

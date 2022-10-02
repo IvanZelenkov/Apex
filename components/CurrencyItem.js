@@ -1,9 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Image, ActivityIndicator} from 'react-native';
+import {useFonts} from "expo-font";
 
 const CurrencyItem = (props) => {
     const { cryptoId, name, abbreviation, currentPrice, pricePercentageChange7days, logo, onPress } = props;
     const priceColorChange = pricePercentageChange7days > 0 ? "green" : "red";
+
+    let [fontsLoaded] = useFonts({
+        'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
+        'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+        'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf')
+    });
+
+    if (!fontsLoaded) {
+        return <ActivityIndicator size={'large'} />
+    }
+
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>
             <View style={styles.currencyItems}>
@@ -56,12 +68,14 @@ const styles = StyleSheet.create({
         marginLeft: 8
     },
     title: {
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: 'Montserrat-Medium'
     },
     subtitle: {
         fontSize: 14,
         marginTop: 4,
-        color: "gray"
+        color: "gray",
+        fontFamily: 'Montserrat'
     }
 });
 

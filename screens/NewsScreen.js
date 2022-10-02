@@ -1,9 +1,10 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, RefreshControl } from 'react-native';
+import {StyleSheet, Text, View, FlatList, SafeAreaView, RefreshControl, ActivityIndicator} from 'react-native';
 import axios from "axios";
 import NewsItem from '../components/NewsItem';
 import { getMarketNews } from '../services/cryptoRequest';
 import { logger } from 'react-native-logs';
+import { useFonts } from "expo-font";
 
 const Header = () => (
 	<>
@@ -37,7 +38,7 @@ export default function NewsScreen() {
 			method: 'GET',
 			url: 'https://mboum-finance.p.rapidapi.com/ne/news',
 			headers: {
-				'X-RapidAPI-Key': '',
+				'X-RapidAPI-Key': 'c896b36245msh5f7010b3637c44cp14a62fjsn5cb74015600b',
 				'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
 			},
 		};
@@ -64,10 +65,20 @@ export default function NewsScreen() {
 		setSelectedNewsData(item);
 	};
 
+	let [fontsLoaded] = useFonts({
+		'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
+		'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+		'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf')
+	});
+
 	useEffect(() => {
 		// fetchCrypto();
 		getMarketNews();
 	}, []);
+
+	if (!fontsLoaded) {
+		return <ActivityIndicator size={'large'} />
+	}
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -112,7 +123,9 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		fontWeight: "900",
 		fontStyle: "italic",
-		color: "#FF0000"
+		color: "#FF0000",
+		fontFamily: 'Montserrat-SemiBold',
+		letterSpacing: 5
 	},
 	breaker: {
 		height: StyleSheet.hairlineWidth,

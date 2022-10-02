@@ -1,5 +1,6 @@
 import axios from 'axios';
 import moment from 'moment';
+import { logger } from 'react-native-logs';
 
 const formatSparkline = (numbers) => {
     const sevenDaysAgo = moment().subtract(7, 'days').unix();
@@ -51,11 +52,19 @@ export const getFavoriteCrypto = async (cryptoPageNumber = 1, cryptoIds, timing 
     }
 }
 
-export const getCryptoNews = async () => {
-    try {
-        const response =  await axios.get('https://cryptopanic.com/api/v1/posts/?auth_token=be40f8e913f0c690fb9f7e45280c8c6bf5375981&public=true');
+export const getMarketNews = async () => {
+    const options = {
+        method: 'GET',
+        url: 'https://crypto-news-live3.p.rapidapi.com/news/cryptonews.com',
+        headers: {
+            'X-RapidAPI-Key': 'c896b36245msh5f7010b3637c44cp14a62fjsn5cb74015600b',
+            'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com'
+        },
+    };
+
+    axios.request(options).then(function (response) {
         return response.data;
-    } catch (error) {
-        console.log(error.message);
-    }
+    }).catch(function (error) {
+        console.error(error);
+    });
 }

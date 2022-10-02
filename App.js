@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import {ActivityIndicator, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import FeatherIcons from 'react-native-vector-icons/Feather';
@@ -9,10 +9,19 @@ import BottomTabNavigator from './screens/BottomTabNavigator';
 import FavoriteListProvider from './contexts/FavoriteListContext';
 import { DrawerContent } from './screens/DrawerContent';
 import Navigation from './screens/Navigator'
+import {useFonts} from "expo-font";
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+    let [fontsLoaded] = useFonts({
+        'Montserrat': require('./assets/fonts/Montserrat-Regular.ttf'),
+    });
+
+    if (!fontsLoaded) {
+        return <ActivityIndicator size={'large'} />
+    }
+
     return (
         <NavigationContainer>
             <RecoilRoot>

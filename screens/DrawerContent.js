@@ -1,11 +1,22 @@
 import React from 'react';
-import { View, StyleSheet, ImageBackground, Image } from 'react-native';
+import {View, StyleSheet, ImageBackground, Image, ActivityIndicator} from 'react-native';
 import { useTheme, Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableRipple, Switch } from 'react-native-paper';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useFonts } from "expo-font";
 
 export function DrawerContent(props) {
     const paperTheme = useTheme();
+
+    let [fontsLoaded] = useFonts({
+        'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
+        'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+        'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf'),
+    });
+
+    if (!fontsLoaded) {
+        return <ActivityIndicator size={'large'} />
+    }
 
     return(
         <View style={{ flex: 1 }}>

@@ -10,12 +10,15 @@ import {
 	ActivityIndicator
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useFonts } from "expo-font";
+import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {useFonts} from "expo-font";
 
 const Header = () => (
 	<>
 		<View style={styles.titleWrapper}>
-			<Text style={styles.mainTitle}>SETTINGS</Text>
+			<Text style={styles.mainTitle}>CALCULATORS</Text>
 		</View>
 		<View style={styles.breaker}/>
 	</>
@@ -36,28 +39,16 @@ export default function SettingsScreen() {
 		<SafeAreaView style={styles.container}>
 			<Header/>
 			<TouchableOpacity style={styles.settingsItem}>
-				<MaterialCommunityIcons name="account-circle" style={styles.settingsItemIcon}/>
-				<Text style={styles.settingsItemTitle}>Profile</Text>
+				<Feather name="cpu" style={styles.settingsItemIcon}/>
+				<Text style={styles.settingsItemTitle}>GPU Mining Calculator</Text>
 			</TouchableOpacity>
 			<TouchableOpacity style={styles.settingsItem}>
-				<MaterialCommunityIcons name="cog-outline" style={styles.settingsItemIcon}/>
-				<Text style={styles.settingsItemTitle}>General</Text>
+				<FontAwesome name="exchange" style={styles.settingsItemIcon}/>
+				<Text style={styles.settingsItemTitle}>Cryptocurrency Converter</Text>
 			</TouchableOpacity>
 			<TouchableOpacity style={styles.settingsItem}>
-				<MaterialCommunityIcons name="eye-outline" style={styles.settingsItemIcon}/>
-				<Text style={styles.settingsItemTitle}>Advanced Settings</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={styles.settingsItem}>
-				<MaterialCommunityIcons name="bell-outline" style={styles.settingsItemIcon}/>
-				<Text style={styles.settingsItemTitle}>Notifications</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={styles.settingsItem}>
-				<MaterialCommunityIcons name="security" style={styles.settingsItemIcon}/>
-				<Text style={styles.settingsItemTitle}>Security</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={styles.settingsItem}>
-				<MaterialCommunityIcons name="chat-question-outline" style={styles.settingsItemIcon}/>
-				<Text style={styles.settingsItemTitle}>Support</Text>
+				<FontAwesome5 name="search-dollar" style={styles.settingsItemIcon}/>
+				<Text style={styles.settingsItemTitle}>Crypto Profit Calculator</Text>
 			</TouchableOpacity>
 		</SafeAreaView>
 	);
@@ -77,7 +68,7 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		fontWeight: "900",
 		fontStyle: "italic",
-		color: "#8434C1",
+		color: "#F98E07",
 		fontFamily: 'Montserrat-SemiBold',
 		letterSpacing: 5
 	},
@@ -91,7 +82,7 @@ const styles = StyleSheet.create({
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
-		padding: 30
+		padding: 30,
 	},
 	settingsItemIcon: {
 		marginRight: 30,
@@ -100,6 +91,8 @@ const styles = StyleSheet.create({
 	},
 	settingsItemTitle: {
 		fontSize: 22,
-		color: "black"
+		color: "black",
+		flexShrink: 1,
+		fontFamily: 'Montserrat'
 	}
 });

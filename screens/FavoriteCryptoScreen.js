@@ -1,11 +1,12 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
-import { StyleSheet, View, Text, FlatList, RefreshControl, SafeAreaView } from 'react-native';
+import {StyleSheet, View, Text, FlatList, RefreshControl, SafeAreaView, ActivityIndicator} from 'react-native';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 import Chart from "../components/Chart";
 import CurrencyItem from '../components/CurrencyItem';
 import { getFavoriteCrypto } from '../services/cryptoRequest';
 import { useFavoriteList } from '../contexts/FavoriteListContext';
+import {useFonts} from "expo-font";
 
 const Header = () => (
 	<>
@@ -40,11 +41,21 @@ export default function FavoriteCryptoScreen() {
 		setSelectedCurrencyData(item);
 		bottomSheetModalRef.current.present();
 	};
+
+	let [fontsLoaded] = useFonts({
+		'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
+		'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+		'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf'),
+	});
     
 	useEffect(() => {
         if (favoriteCryptoIds.length > 0) 
             fetchFavoriteCrypto();
     }, [favoriteCryptoIds]);
+
+	if (!fontsLoaded) {
+		return <ActivityIndicator size={'large'} />
+	}
 
     return (
 		<BottomSheetModalProvider style={styles.bottomSheetWrapper}>
@@ -107,7 +118,9 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		fontWeight: "900",
 		fontStyle: "italic",
-		color: "#FFAB33"
+		color: "#FFAB33",
+		fontFamily: 'Montserrat-SemiBold',
+		letterSpacing: 5
 	},
 	breaker: {
 		height: StyleSheet.hairlineWidth,
