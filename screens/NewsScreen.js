@@ -37,7 +37,7 @@ export default function NewsScreen() {
 			method: 'GET',
 			url: 'https://mboum-finance.p.rapidapi.com/ne/news',
 			headers: {
-				'X-RapidAPI-Key': 'c896b36245msh5f7010b3637c44cp14a62fjsn5cb74015600b',
+				'X-RapidAPI-Key': '',
 				'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
 			},
 		};
