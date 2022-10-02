@@ -1,8 +1,9 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
-import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-
-import { getMarketData } from '../services/cryptoRequest';
+import { StyleSheet, Text, View, FlatList, SafeAreaView, RefreshControl } from 'react-native';
+import axios from "axios";
+import NewsItem from '../components/NewsItem';
+import { getMarketNews } from '../services/cryptoRequest';
+import { logger } from 'react-native-logs';
 
 const Header = () => (
 	<>
@@ -15,36 +16,85 @@ const Header = () => (
 
 export default function NewsScreen() {
 	const [data, setData] = useState([]);
-	const [selectedCurrencyData, setSelectedCurrencyData] = useState(null);
+	const [selectedNewsData, setSelectedNewsData] = useState(null);
+	const [loading, setLoading] = useState(false);
 
-	useEffect(() => {
-		const fetchMarketData = async () => {
-			const marketData = await getMarketData();
-			setData(marketData);
+	// const fetchCrypto = async () => {
+	// 	if (loading) return;
+	//
+	// 	setLoading(true);
+	// 	const marketData = await getMarketNews();
+	//
+	// 	let log = logger.createLogger();
+	// 	log.info(marketData);
+	//
+	// 	// setData((currentCrypto) => ([...currentCrypto, ...marketData]));
+	// 	setLoading(false);
+	// }
+
+	const getMarketNews = async () => {
+		const options = {
+			method: 'GET',
+			url: 'https://mboum-finance.p.rapidapi.com/ne/news',
+			headers: {
+				'X-RapidAPI-Key': 'c896b36245msh5f7010b3637c44cp14a62fjsn5cb74015600b',
+				'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
+			},
 		};
 
-		fetchMarketData();
-	}, []);
+		axios.request(options).then(function (response) {
+			setData(response.data);
+			// return response.data;
+		}).catch(function (error) {
+			console.error(error);
+		});
+	}
 
-	const bottomSheetModalRef = useRef(null);
+	const refreshNews = async () => {
+		if (loading) return;
 
-	const snapPoints = useMemo(() => ['50%'], []);
+		setLoading(true);
+		// const marketData = await getMarketNews();
+		// setData(marketData);
+		getMarketNews();
+		setLoading(false);
+	}
 
-	const openModal = (item) => {
-		setSelectedCurrencyData(item);
-		bottomSheetModalRef.current.present();
+	const openNews = (item) => {
+		setSelectedNewsData(item);
 	};
 
+	useEffect(() => {
+		// fetchCrypto();
+		getMarketNews();
+	}, []);
+
 	return (
-		<BottomSheetModalProvider>
-			<SafeAreaView style={styles.container}>
+		<SafeAreaView style={styles.container}>
 				<FlatList
 					keyExtractor={(item) => item.id}
 					data={data}
+					renderItem={({ item }) => (
+						<NewsItem
+							title={item.title}
+							link={item.link}
+							pubDate={item.pubDate}
+							source={item.source}
+							guid={item.guid}
+							onPress={() => openNews(item)}
+						/>
+					)}
+					// onEndReached={() => fetchCryptoNews(((data.length / 50) + 1))}
 					ListHeaderComponent={<Header/>}
+					refreshControl={
+						<RefreshControl
+							refreshing={loading}
+							tintColor="black"
+							onRefresh={refreshNews}
+						/>
+					}
 				/>
 			</SafeAreaView>
-		</BottomSheetModalProvider>
 	);
 }
 
