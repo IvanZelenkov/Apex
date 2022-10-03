@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td valign="top">
-      <img src="https://user-images.githubusercontent.com/64171964/193493548-db2f8c5d-07e9-496e-9dcb-670f58cbf597.PNG" width="414" height="500">
+      <img src="https://user-images.githubusercontent.com/64171964/193493548-db2f8c5d-07e9-496e-9dcb-670f58cbf597.PNG" width="414" height="450">
     </td>
     <td valign="top">
       <img src="https://user-images.githubusercontent.com/64171964/193493574-95cb3985-af2d-4750-af02-5615a4b91cca.PNG" width="414" height="500">
