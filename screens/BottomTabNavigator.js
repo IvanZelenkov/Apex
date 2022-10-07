@@ -6,7 +6,7 @@ import { useFonts } from 'expo-font';
 import CryptoScreen from './CryptoScreen';
 import FavoriteCryptoScreen from './FavoriteCryptoScreen';
 import MessengerScreen from './MessengerScreen';
-import CalculatorsScreen from './CalculatorsScreen';
+import CalculatorsNavigator from './Calculators/CalculatorsNavigator';
 import NewsScreen from './NewsScreen';
 import SettingsScreen from './SettingsScreen';
 import React from "react";
@@ -36,7 +36,7 @@ export default function BottomTabNavigator() {
                     <MaterialCommunityIcons name="message-text" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="CalculatorsScreen" component={CalculatorsScreen} options={{ tabBarLabel: 'Calculators', tabBarColor: "#F98E07", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="alculatorsNavigator" component={CalculatorsNavigator} options={{ tabBarLabel: 'Calculators', tabBarColor: "#F98E07", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="calculator-variant" color={color} size={24}/>
                 )}}
             />

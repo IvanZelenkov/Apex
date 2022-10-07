@@ -8,7 +8,7 @@ import { RecoilRoot } from 'recoil';
 import BottomTabNavigator from './screens/BottomTabNavigator';
 import FavoriteListProvider from './contexts/FavoriteListContext';
 import { DrawerContent } from './screens/DrawerContent';
-import Navigation from './screens/Navigator'
+import Navigatior from './screens/Navigator'
 import {useFonts} from "expo-font";
 
 const Drawer = createDrawerNavigator();
@@ -26,7 +26,7 @@ export default function App() {
         <NavigationContainer>
             <RecoilRoot>
                 <FavoriteListProvider>
-                    <Navigation/>
+                    <Navigatior/>
                     {/* <Drawer.Navigator 
                         screenOptions={({ navigation }) => ({
                             drawerStyle: {backgroundColor: 'white' },
