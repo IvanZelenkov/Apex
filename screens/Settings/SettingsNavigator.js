@@ -3,8 +3,10 @@ import { StyleSheet, Text, View, SafeAreaView, ActivityIndicator } from 'react-n
 import { useFonts } from "expo-font";
 import { createStackNavigator } from '@react-navigation/stack';
 
-import CalculatorsScreen from './CalculatorsScreen';
-import Converter from './Converter';
+import SettingsScreen from './SettingsScreen';
+import Profile from './Profile';
+import SignIn from './SignIn';
+import Register from './Register';
 
 const Stack = createStackNavigator();
 
@@ -20,15 +22,25 @@ export default function CalculatorsNavigator() {
 	}
 
 	return (
-		<Stack.Navigator initialRouteName="CalculatorsNavigator">
+		<Stack.Navigator initialRouteName="SettingsNavigator">
 			<Stack.Screen
-				name="CalculatorsScreen"
-				component={CalculatorsScreen}
+				name="SettingsScreen"
+				component={SettingsScreen}
 				options={{ headerShown: false }}
 			/>
 			<Stack.Screen
-				name="Converter"
-				component={Converter}
+				name="Profile"
+				component={Profile}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name="SignIn"
+				component={SignIn}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name="Register"
+				component={Register}
 				options={{ headerShown: false }}
 			/>
 		</Stack.Navigator>

@@ -17,7 +17,7 @@ const Header = () => (
 	</>
 );
 
-export default function Converter({ navigation }) {
+export default function Profile({ navigation }) {
     const [cryptocurrencies, setCryptocurrencies] = useState([]);
     const [currentPrice, setCurrentPrice] = useState([]);
     const currencies = ['usd', 'eur'];

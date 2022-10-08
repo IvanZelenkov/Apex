@@ -17,15 +17,15 @@ export default function CalculatorsScreen({ navigation }) {
 	return (
 		<SafeAreaView>
 			<Header/>
-			<TouchableOpacity style={styles.calculatorItem} onPress={() => navigation.navigate('Home')}>
+			<TouchableOpacity style={styles.calculatorItem} onPress={() => navigation.navigate('MiningCalculator')}>
 				<Feather name="cpu" style={styles.calculatorItemIcon}/>
 				<Text style={styles.calculatorItemTitle}>GPU Mining Calculator</Text>
 			</TouchableOpacity>
-			<TouchableOpacity style={styles.calculatorItem} onPress={() => navigation.navigate('2')}>
+			<TouchableOpacity style={styles.calculatorItem} onPress={() => navigation.navigate('Converter')}>
 				<FontAwesome name="exchange" style={styles.calculatorItemIcon}/>
 				<Text style={styles.calculatorItemTitle}>Cryptocurrency Converter</Text>
 			</TouchableOpacity>
-			<TouchableOpacity style={styles.calculatorItem} onPress={() => navigation.navigate('3')}>
+			<TouchableOpacity style={styles.calculatorItem} onPress={() => navigation.navigate('ProfitCalculator')}>
 				<FontAwesome5 name="search-dollar" style={styles.calculatorItemIcon}/>
 				<Text style={styles.calculatorItemTitle}>Crypto Profit Calculator</Text>
 			</TouchableOpacity>
@@ -53,9 +53,9 @@ const styles = StyleSheet.create({
 	},
 	breaker: {
 		height: StyleSheet.hairlineWidth,
-		marginHorizontal: 16,
 		marginTop: 16,
 		backgroundColor: "black",
+        borderWidth: 1
 	},
 	calculatorItem: {
 		display: 'flex',

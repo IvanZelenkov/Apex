@@ -129,9 +129,9 @@ const styles = StyleSheet.create({
 	},
 	breaker: {
 		height: StyleSheet.hairlineWidth,
-		marginHorizontal: 16,
 		marginTop: 16,
 		backgroundColor: "black",
+        borderWidth: 1
 	},
 	bottomSheet: {
 		shadowColor: "#000",

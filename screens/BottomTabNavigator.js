@@ -8,7 +8,7 @@ import FavoriteCryptoScreen from './FavoriteCryptoScreen';
 import MessengerScreen from './MessengerScreen';
 import CalculatorsNavigator from './Calculators/CalculatorsNavigator';
 import NewsScreen from './NewsScreen';
-import SettingsScreen from './SettingsScreen';
+import SettingsNavigator from './Settings/SettingsNavigator';
 import React from "react";
 
 const Tab = createMaterialBottomTabNavigator();
@@ -36,7 +36,7 @@ export default function BottomTabNavigator() {
                     <MaterialCommunityIcons name="message-text" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="alculatorsNavigator" component={CalculatorsNavigator} options={{ tabBarLabel: 'Calculators', tabBarColor: "#F98E07", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="CalculatorsNavigator" component={CalculatorsNavigator} options={{ tabBarLabel: 'Calculators', tabBarColor: "#F98E07", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="calculator-variant" color={color} size={24}/>
                 )}}
             />
@@ -44,7 +44,7 @@ export default function BottomTabNavigator() {
                     <MaterialCommunityIcons name="newspaper" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="SettingsScreen" component={SettingsScreen} options={{ tabBarLabel: 'Settings', tabBarColor: "#8434C1", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="SettingsNavigator" component={SettingsNavigator} options={{ tabBarLabel: 'Settings', tabBarColor: "#8434C1", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="cog" color={color} size={24}/>
                 )}}
             />
