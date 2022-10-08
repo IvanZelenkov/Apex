@@ -25,5 +25,8 @@
     <td valign="top">
       <img src="https://user-images.githubusercontent.com/64171964/193493708-a20d9ca7-2c98-4cfc-a62a-b557e8af5eea.PNG" width="414" height="390">
     </td>
+    <td valign="top">
+      <img src="https://user-images.githubusercontent.com/64171964/194683992-7848e105-0072-4d27-921a-73fbdf1166eb.PNG" width="414" height="390">
+    </td>
   </tr>
 </table>
