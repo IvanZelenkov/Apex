@@ -31,10 +31,10 @@
   </tr>
   <tr>
     <td valign="top">
-      <img src="https://user-images.githubusercontent.com/64171964/194684147-d5f0ac17-82c3-4afc-a2d3-571267c03f3b.PNG" width="410" height="390">
+      <img src="https://user-images.githubusercontent.com/64171964/194684189-279f2e1f-8edc-4515-a705-1eaeb84cea3b.PNG" width="410" height="390">
     </td>
     <td valign="top">
-      <img src="https://user-images.githubusercontent.com/64171964/194684189-279f2e1f-8edc-4515-a705-1eaeb84cea3b.PNG" width="410" height="390">
+      <img src="https://user-images.githubusercontent.com/64171964/194684362-7ca9d796-211c-4548-8e49-0359d6c30144.PNG" width="410" height="390">
     </td>
   </tr>
 </table>
