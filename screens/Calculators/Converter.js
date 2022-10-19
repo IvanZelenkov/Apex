@@ -26,6 +26,8 @@ export default function Converter({ navigation }) {
     const [selectedCrypto, setSelectedCrypto] = useState('bitcoin');
 	const [loading, setLoading] = useState(false);
 
+    var log = logger.createLogger();
+
     const getParticularCryptoData = async (currency, cryptoId, timing) => {
         try {
             const response =  await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${cryptoId}&order=market_cap_desc&per_page=1&page=1&sparkline=false&price_change_percentage=${timing}`);
@@ -44,13 +46,9 @@ export default function Converter({ navigation }) {
 		setLoading(false);
     }
 
-    const fetchCurrency = async () => {
-		if (loading) return;
-		
-		setLoading(true);
-		const currentPrice = await getParticularCryptoData(selectedCurrency, selectedCrypto, '1h');
+    const fetchCurrencies = async (currency = selectedCurrency, cryptocurrency = selectedCrypto) => {
+        const currentPrice = await getParticularCryptoData(currency, cryptocurrency, '1h');
         setCurrentPrice(currentPrice);
-		setLoading(false);
     }
 
     let [fontsLoaded] = useFonts({
@@ -61,10 +59,7 @@ export default function Converter({ navigation }) {
 
     useEffect(() => {
 		fetchCrypto();
-        fetchCurrency();
-        // var log = logger.createLogger();
-        // log.info(selectedCrypto);
-        // log.info(selectedCurrency);
+        fetchCurrencies(selectedCurrency, selectedCrypto);
 	}, []);
 
     if (!fontsLoaded) {
@@ -95,14 +90,14 @@ export default function Converter({ navigation }) {
                         value={amount}
                         onChangeText={amount => setAmount(amount)}
                     />
-                    <Picker 
+                    <Picker
                         selectedValue={selectedCrypto}
                         style={styles.picker}
                         onValueChange={(itemValue) => {
                             setSelectedCrypto(itemValue);
-                            fetchCurrency();
+                            fetch(selectedCurrency, itemValue);
                         }}
-                    >  
+                    >
                         {cryptocurrencies.map(item => (
                             <Picker.Item key={item.id} label={item.id} value={item.id}/>
                         ))}
@@ -112,9 +107,9 @@ export default function Converter({ navigation }) {
                         style={styles.picker}
                         onValueChange={(itemValue) => {
                             setSelectedCurrency(itemValue);
-                            fetchCurrency();
+                            fetch(itemValue, selectedCrypto);
                         }}
-                    >  
+                    >
                         {currencies.map(item => (
                             <Picker.Item key={item} label={item.toUpperCase()} value={item}/>
                         ))}
