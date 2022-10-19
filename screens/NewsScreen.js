@@ -36,16 +36,16 @@ export default function NewsScreen() {
 	const getMarketNews = async () => {
 		const options = {
 			method: 'GET',
-			url: 'https://mboum-finance.p.rapidapi.com/ne/news',
+			url: 'https://crypto-news-live11.p.rapidapi.com/all',
+			params: {page: '1', per_page: '50'},
 			headers: {
 				'X-RapidAPI-Key': 'c896b36245msh5f7010b3637c44cp14a62fjsn5cb74015600b',
-				'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
+				'X-RapidAPI-Host': 'crypto-news-live11.p.rapidapi.com'
 			},
 		};
 
 		axios.request(options).then(function (response) {
-			setData(response.data);
-			// return response.data;
+			setData(response.data.news);
 		}).catch(function (error) {
 			console.error(error);
 		});
@@ -55,8 +55,6 @@ export default function NewsScreen() {
 		if (loading) return;
 
 		setLoading(true);
-		// const marketData = await getMarketNews();
-		// setData(marketData);
 		getMarketNews();
 		setLoading(false);
 	}
@@ -89,9 +87,9 @@ export default function NewsScreen() {
 						<NewsItem
 							title={item.title}
 							link={item.link}
-							pubDate={item.pubDate}
-							source={item.source}
-							guid={item.guid}
+							imageURL={item.img}
+							pubDate={item.date}
+							id={item.id}
 							onPress={() => openNews(item)}
 						/>
 					)}

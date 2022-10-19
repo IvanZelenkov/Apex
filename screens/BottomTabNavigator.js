@@ -36,7 +36,7 @@ export default function BottomTabNavigator() {
                     <MaterialCommunityIcons name="message-text" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="CalculatorsNavigator" component={CalculatorsNavigator} options={{ tabBarLabel: 'Calculators', tabBarColor: "#F98E07", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="CalculatorsNavigator" component={CalculatorsNavigator} options={{ tabBarLabel: 'Calculate', tabBarColor: "#F98E07", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="calculator-variant" color={color} size={24}/>
                 )}}
             />

@@ -19,9 +19,9 @@ const Header = () => (
 
 export default function Converter({ navigation }) {
     const [cryptocurrencies, setCryptocurrencies] = useState([]);
-    const [currentPrice, setCurrentPrice] = useState([]);
     const currencies = ['usd', 'eur'];
     const [amount, setAmount] = useState('');
+    const [currentPrice, setCurrentPrice] = useState(amount);
     const [selectedCurrency, setSelectedCurrency] = useState('usd');
     const [selectedCrypto, setSelectedCrypto] = useState('bitcoin');
     const [loading, setLoading] = useState(false);
@@ -103,7 +103,7 @@ export default function Converter({ navigation }) {
                         }}
                     >
                         {cryptocurrencies.map(item => (
-                            <Picker.Item key={item.id} label={item.id} value={item.id}/>
+                            <Picker.Item key={item.id} label={item.id.charAt(0).toUpperCase() + item.id.slice(1)} value={item.id}/>
                         ))}
                     </Picker>
                     <Picker
@@ -112,15 +112,15 @@ export default function Converter({ navigation }) {
                         onValueChange={(itemValue) => {
                             setSelectedCurrency(itemValue);
                             fetchCurrencies(itemValue, selectedCrypto);
-                        }}s
+                        }}
                     >
                         {currencies.map(item => (
                             <Picker.Item key={item} label={item.toUpperCase()} value={item}/>
                         ))}
                     </Picker>
                     {amount === ''
-                        ? <Text style={styles.resultOutput}>$ {currentPrice}</Text>
-                        : <Text style={styles.resultOutput}>$ {amount * currentPrice}</Text>
+                        ? <Text style={styles.resultOutput}>$ {parseFloat(currentPrice).toFixed(2)}</Text>
+                        : <Text style={styles.resultOutput}>$ {parseFloat(amount * currentPrice).toFixed(2)}</Text>
                     }
                 </View>
             </View>

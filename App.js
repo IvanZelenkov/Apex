@@ -11,7 +11,7 @@ import { DrawerContent } from './screens/DrawerContent';
 import Navigatior from './screens/Navigator'
 import {useFonts} from "expo-font";
 
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
 
 export default function App() {
     let [fontsLoaded] = useFonts({

@@ -50,7 +50,9 @@ export default function SignIn({ navigation }) {
                         onChangeText={inputText => setAmount(inputText)}
                     />
                     <Text style={{textDecorationLine: 'underline'}}>Forgot Password?</Text>
-                    
+                    <Pressable style={styles.button}>
+                        <Text style={styles.text}>Sign In</Text>
+                    </Pressable>
                 </View>
             </View>
         </SafeAreaView>
