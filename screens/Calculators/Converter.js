@@ -10,11 +10,11 @@ import axios from 'axios';
 import { getMarketData } from '../../services/cryptoRequest';
 
 const Header = () => (
-	<>
-		<View style={styles.titleWrapper}>
-			<Text style={styles.mainTitle}>CONVERTER</Text>
-		</View>
-	</>
+    <>
+        <View style={styles.titleWrapper}>
+            <Text style={styles.mainTitle}>CONVERTER</Text>
+        </View>
+    </>
 );
 
 export default function Converter({ navigation }) {
@@ -24,7 +24,7 @@ export default function Converter({ navigation }) {
     const [amount, setAmount] = useState('');
     const [selectedCurrency, setSelectedCurrency] = useState('usd');
     const [selectedCrypto, setSelectedCrypto] = useState('bitcoin');
-	const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     var log = logger.createLogger();
 
@@ -38,17 +38,21 @@ export default function Converter({ navigation }) {
     }
 
     const fetchCrypto = async () => {
-		if (loading) return;
-		
-		setLoading(true);
+        if (loading) return;
+
+        setLoading(true);
         const marketData = await getMarketData();
-		setCryptocurrencies((currentCrypto) => ([...currentCrypto, ...marketData]));
-		setLoading(false);
+        setCryptocurrencies((currentCrypto) => ([...currentCrypto, ...marketData]));
+        setLoading(false);
     }
 
     const fetchCurrencies = async (currency = selectedCurrency, cryptocurrency = selectedCrypto) => {
+        if (loading) return;
+
+        setLoading(true);
         const currentPrice = await getParticularCryptoData(currency, cryptocurrency, '1h');
         setCurrentPrice(currentPrice);
+        setLoading(false);
     }
 
     let [fontsLoaded] = useFonts({
@@ -58,9 +62,9 @@ export default function Converter({ navigation }) {
     });
 
     useEffect(() => {
-		fetchCrypto();
+        fetchCrypto();
         fetchCurrencies(selectedCurrency, selectedCrypto);
-	}, []);
+    }, []);
 
     if (!fontsLoaded) {
         return <ActivityIndicator size={'large'} />
@@ -81,7 +85,7 @@ export default function Converter({ navigation }) {
             <View style={styles.breaker}/>
             <View>
                 <View style={{alignItems: 'center'}}>
-                    <TextInput 
+                    <TextInput
                         style={styles.amountInputField}
                         mode={'outlined'}
                         outlineColor={'#F98E07'}
@@ -95,26 +99,29 @@ export default function Converter({ navigation }) {
                         style={styles.picker}
                         onValueChange={(itemValue) => {
                             setSelectedCrypto(itemValue);
-                            fetch(selectedCurrency, itemValue);
+                            fetchCurrencies(selectedCurrency, itemValue);
                         }}
                     >
                         {cryptocurrencies.map(item => (
                             <Picker.Item key={item.id} label={item.id} value={item.id}/>
                         ))}
                     </Picker>
-                    <Picker 
+                    <Picker
                         selectedValue={selectedCurrency}
                         style={styles.picker}
                         onValueChange={(itemValue) => {
                             setSelectedCurrency(itemValue);
-                            fetch(itemValue, selectedCrypto);
-                        }}
+                            fetchCurrencies(itemValue, selectedCrypto);
+                        }}s
                     >
                         {currencies.map(item => (
                             <Picker.Item key={item} label={item.toUpperCase()} value={item}/>
                         ))}
                     </Picker>
-                    <Text style={styles.resultOutput}>$ {currentPrice}</Text>
+                    {amount === ''
+                        ? <Text style={styles.resultOutput}>$ {currentPrice}</Text>
+                        : <Text style={styles.resultOutput}>$ {amount * currentPrice}</Text>
+                    }
                 </View>
             </View>
         </SafeAreaView>
@@ -136,23 +143,23 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start'
     },
     titleWrapper: {
-		alignItems: 'center',
-		paddingHorizontal: 60
-	},
-	mainTitle: {
-		fontSize: 24,
-		fontWeight: "900",
-		fontStyle: "italic",
-		color: "#F98E07",
-		fontFamily: 'Montserrat-SemiBold',
-		letterSpacing: 5
-	},
+        alignItems: 'center',
+        paddingHorizontal: 60
+    },
+    mainTitle: {
+        fontSize: 24,
+        fontWeight: "900",
+        fontStyle: "italic",
+        color: "#F98E07",
+        fontFamily: 'Montserrat-SemiBold',
+        letterSpacing: 5
+    },
     breaker: {
-		height: StyleSheet.hairlineWidth,
-		marginTop: 16,
-		backgroundColor: "black",
+        height: StyleSheet.hairlineWidth,
+        marginTop: 16,
+        backgroundColor: "black",
         borderWidth: 1
-	},
+    },
     amountInputField: {
         width: 200,
         backgroundColor: '#EEEEEE',
@@ -164,8 +171,8 @@ const styles = StyleSheet.create({
         marginBottom: 130
     },
     resultOutput: {
-        fontSize: 50, 
-        marginTop: 50, 
+        fontSize: 50,
+        marginTop: 50,
         fontFamily: 'Montserrat'
     }
 });
