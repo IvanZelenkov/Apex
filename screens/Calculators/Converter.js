@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ActivityIndicator, FlatList } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { TextInput } from 'react-native-paper';
 import { logger } from 'react-native-logs';
 import { useFonts } from 'expo-font';
@@ -19,7 +20,7 @@ const Header = () => (
 
 export default function Converter({ navigation }) {
     const [cryptocurrencies, setCryptocurrencies] = useState([]);
-    const currencies = ['usd', 'eur'];
+    const currencies = ['usd', 'eur', 'rub', 'cny', 'jpy', 'gbp', 'inr', 'krw'];
     const [amount, setAmount] = useState('');
     const [currentPrice, setCurrentPrice] = useState(amount);
     const [selectedCurrency, setSelectedCurrency] = useState('usd');
@@ -53,6 +54,26 @@ export default function Converter({ navigation }) {
         const currentPrice = await getParticularCryptoData(currency, cryptocurrency, '1h');
         setCurrentPrice(currentPrice);
         setLoading(false);
+    }
+
+    function getCurrencySign(currencyType) {
+        if (selectedCurrency === 'usd')
+            return <FontAwesome name={'dollar'} size={45}/>;
+        else if (selectedCurrency === 'eur')
+            return <FontAwesome name={'euro'} size={45}/>;
+        else if (selectedCurrency === 'rub')
+            return <FontAwesome name={'ruble'} size={45}/>;
+        else if (selectedCurrency === 'cny')
+            return <FontAwesome name={'cny'} size={45}/>;
+        else if (selectedCurrency === 'jpy')
+            return <FontAwesome name={'jpy'} size={45}/>;
+        else if (selectedCurrency === 'gbp')
+            return <FontAwesome name={'gbp'} size={45}/>;
+        else if (selectedCurrency === 'inr')
+            return <FontAwesome name={'inr'} size={45}/>;
+        else if (selectedCurrency === 'krw') {
+            return <FontAwesome name={'krw'} size={45}/>
+        }
     }
 
     let [fontsLoaded] = useFonts({
@@ -119,8 +140,8 @@ export default function Converter({ navigation }) {
                         ))}
                     </Picker>
                     {amount === ''
-                        ? <Text style={styles.resultOutput}>$ {parseFloat(currentPrice).toFixed(2)}</Text>
-                        : <Text style={styles.resultOutput}>$ {parseFloat(amount * currentPrice).toFixed(2)}</Text>
+                        ? <Text style={styles.resultOutput}>{getCurrencySign(selectedCurrency)} {parseFloat(currentPrice).toFixed(2)}</Text>
+                        : <Text style={styles.resultOutput}>{getCurrencySign(selectedCurrency)} {parseFloat(amount * currentPrice).toFixed(2)}</Text>
                     }
                 </View>
             </View>
@@ -168,7 +189,7 @@ const styles = StyleSheet.create({
     picker: {
         height: 50,
         width: 300,
-        marginBottom: 130
+        marginBottom: 150
     },
     resultOutput: {
         fontSize: 50,
