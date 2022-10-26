@@ -4,11 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 
-import BottomTabNavigator from './screens/BottomTabNavigator';
-import FavoriteListProvider from './contexts/FavoriteListContext';
-import { DrawerContent } from './screens/DrawerContent';
-import Navigation from './screens/Navigation';
+import BottomTabNavigator from './src/screens/BottomTabNavigator';
+import FavoriteListProvider from './src/contexts/FavoriteListContext';
+import { DrawerContent } from './src/screens/DrawerContent';
+import Navigation from './src/screens/Navigation';
 import { useFonts } from "expo-font";
+
+import { Amplify } from 'aws-amplify';
+import awsExports from './src/aws-exports';
+Amplify.configure(awsExports);
 
 // const Drawer = createDrawerNavigator();
 
