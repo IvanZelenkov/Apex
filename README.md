@@ -50,5 +50,8 @@
     <td valign="top">
       <img src="https://user-images.githubusercontent.com/64171964/197935584-2efcd8bc-048f-48d8-813a-8ebbb3ed8a52.PNG" width="410" height="390">
     </td>
+    <td valign="top">
+      <img src="https://user-images.githubusercontent.com/64171964/197936511-1e8cc300-18ce-42d0-9c21-6b61744236d0.PNG" width="410" height="390">
+    </td>
   </tr>
 </table>
