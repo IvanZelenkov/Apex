@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { StyleSheet, ScrollView, Image, useWindowDimensions, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, ScrollView, Image, useWindowDimensions, View, Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import { useForm } from 'react-hook-form';
+import { Auth } from 'aws-amplify';
 
 import Logo from '../../../assets/images/logo.png';
 import CustomInput from "../../components/CustomInput";
@@ -8,15 +10,22 @@ import SocialSignInButtons from "../../components/SocialSignInButtons";
 import CustomButton from "../../components/CustomButton";
 
 export default function SignInScreen() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
-    const { height } = useWindowDimensions();
+    const [loading, setLoading] = useState(false);
     const navigation = useNavigation();
+    const { height } = useWindowDimensions();
+    const { control, handleSubmit, formState: {errors} } = useForm();
 
-    const onSignInPress = () => {
-        // validate user
-        navigation.navigate('Home');
+    const onSignInPress = async (data) => {
+        if (loading) return;
+
+        setLoading(true);
+
+        try {
+            const response = await Auth.signIn(data.username, data.password);
+        } catch (error) {
+            Alert.alert('ERROR', error.message);
+        }
+        setLoading(false);
     }
 
     const onForgotPasswordPress = () => {
@@ -36,29 +45,41 @@ export default function SignInScreen() {
                     resizeMode="contain"
                 />
                 <CustomInput
+                    name="username"
                     placeholder="Username"
-                    value={username}
-                    setValue={setUsername}
-                    secureTextEntry={false}/>
+                    control={control}
+                    secureTextEntry={false}
+                    rules={{required: 'Username is required'}}
+                />
                 <CustomInput
+                    name="password"
                     placeholder="Password"
-                    value={password}
-                    setValue={setPassword}
-                    secureTextEntry={true}/>
-
+                    secureTextEntry={true}
+                    control={control}
+                    rules={{
+                        required: 'Password is required',
+                        minLength: {
+                            value: 8,
+                            message: 'Password should be minimum 8 characters long'
+                        }
+                    }}
+                />
                 <CustomButton
-                    title="Sign In"
-                    onPress={onSignInPress}
-                    type="PRIMARY"/>
+                    title={loading ? "Loading..." : "Sign In"}
+                    onPress={handleSubmit(onSignInPress)}
+                    type="PRIMARY"
+                />
                 <CustomButton
                     title="Forgot Password?"
                     onPress={onForgotPasswordPress}
-                    type="SECONDARY"/>
+                    type="SECONDARY"
+                />
                 <SocialSignInButtons/>
                 <CustomButton
                     title="Don't have an account? Create one!"
                     onPress={onSignUpPress}
-                    type="SECONDARY"/>
+                    type="SECONDARY"
+                />
             </View>
         </ScrollView>
     )

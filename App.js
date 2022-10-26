@@ -1,17 +1,17 @@
 import React from 'react';
-import {ActivityIndicator, StyleSheet} from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import FeatherIcons from 'react-native-vector-icons/Feather';
+import { useFonts } from "expo-font";
+import { Amplify } from 'aws-amplify';
+import awsExports from './src/aws-exports';
 
 import BottomTabNavigator from './src/screens/BottomTabNavigator';
 import FavoriteListProvider from './src/contexts/FavoriteListContext';
 import { DrawerContent } from './src/screens/DrawerContent';
 import Navigation from './src/screens/Navigation';
-import { useFonts } from "expo-font";
 
-import { Amplify } from 'aws-amplify';
-import awsExports from './src/aws-exports';
 Amplify.configure(awsExports);
 
 // const Drawer = createDrawerNavigator();
@@ -27,7 +27,7 @@ export default function App() {
 
     return (
         <>
-            {/*    <FavoriteListProvider>*/}
+                <FavoriteListProvider>
                     <Navigation/>
                     {/* <Drawer.Navigator
                         screenOptions={({ navigation }) => ({
@@ -43,7 +43,7 @@ export default function App() {
                     >
                         <Drawer.Screen name="Apex" component={BottomTabNavigator}/>
                     </Drawer.Navigator> */}
-            {/*    </FavoriteListProvider>*/}
+                </FavoriteListProvider>
         </>
     );
 }

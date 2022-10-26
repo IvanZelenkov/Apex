@@ -6,6 +6,7 @@ import { useFonts } from 'expo-font';
 import Chart from "../components/Chart";
 import CurrencyItem from '../components/CurrencyItem';
 import { getMarketData } from '../services/cryptoRequest';
+import {Auth} from "aws-amplify";
 
 const Header = () => (
 	<>
@@ -46,6 +47,10 @@ export default function CryptoScreen() {
 		bottomSheetModalRef.current.present();
 	};
 
+	const signOut = () => {
+		Auth.signOut();
+	}
+
 	let [fontsLoaded] = useFonts({
 		'Montserrat': require('../../assets/fonts/Montserrat-Regular.ttf'),
 		'Montserrat-Medium': require('../../assets/fonts/Montserrat-Medium.ttf'),
@@ -62,6 +67,20 @@ export default function CryptoScreen() {
 
 	return (
 		<BottomSheetModalProvider style={styles.bottomSheetWrapper}>
+			<View style={{marginTop: 50}}>
+				<Text
+					onPress={signOut}
+					style={{
+						width: '100%',
+						textAlign: 'center',
+						color: 'red',
+						marginTop: 'auto',
+						marginVertical: 20,
+						fontSize: 20,
+					}}>
+					Sign out
+				</Text>
+			</View>
 			<SafeAreaView style={styles.container}>
 				<FlatList
 					keyExtractor={(item) => item.id}
@@ -140,5 +159,6 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.45,
 		shadowRadius: 5,
 		elevation: 5
-	}
+	},
+	bottomSheetWrapper: {}
 });

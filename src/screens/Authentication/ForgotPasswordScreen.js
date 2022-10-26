@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
-import {View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import { useForm } from 'react-hook-form';
+import { Auth } from "aws-amplify";
 
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton';
-import {useNavigation} from "@react-navigation/native";
 
 export default function ForgotPasswordScreen() {
-    const [username, setUsername] = useState('');
-
     const navigation = useNavigation();
+    const { control, handleSubmit } = useForm();
 
-    const onSendPress = () => {
-        navigation.navigate('NewPassword');
+    const onSendPress = async (data) => {
+        try {
+            await Auth.forgotPassword(data.username);
+            navigation.navigate('NewPassword');
+        } catch (error) {
+            Alert.alert('ERROR', error.message);
+        }
     };
 
     const onSignInPress = () => {
@@ -23,14 +28,14 @@ export default function ForgotPasswordScreen() {
             <View style={styles.container}>
                 <Text style={styles.title}>Reset Your Password</Text>
                 <CustomInput
+                    name="username"
+                    control={control}
                     placeholder="Username"
-                    value={username}
-                    setValue={setUsername}
+                    rules={{required: 'Username is required'}}
                 />
-
                 <CustomButton
                     title="Send"
-                    onPress={onSendPress}
+                    onPress={handleSubmit(onSendPress)}
                 />
                 <CustomButton
                     title="Back to Sign in"
@@ -64,5 +69,5 @@ const styles = StyleSheet.create({
     },
     link: {
         color: '#FDB075',
-    },
+    }
 });
