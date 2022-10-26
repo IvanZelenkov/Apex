@@ -5,8 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import SettingsScreen from './SettingsScreen';
 import Profile from './Profile';
-import SignIn from './SignIn';
-import Register from './Register';
 
 const Stack = createStackNavigator();
 
@@ -31,16 +29,6 @@ export default function CalculatorsNavigator() {
 			<Stack.Screen
 				name="Profile"
 				component={Profile}
-				options={{ headerShown: false }}
-			/>
-			<Stack.Screen
-				name="SignIn"
-				component={SignIn}
-				options={{ headerShown: false }}
-			/>
-			<Stack.Screen
-				name="Register"
-				component={Register}
 				options={{ headerShown: false }}
 			/>
 		</Stack.Navigator>

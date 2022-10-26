@@ -3,13 +3,12 @@ import {ActivityIndicator, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import FeatherIcons from 'react-native-vector-icons/Feather';
-import { RecoilRoot } from 'recoil';
 
 import BottomTabNavigator from './screens/BottomTabNavigator';
 import FavoriteListProvider from './contexts/FavoriteListContext';
 import { DrawerContent } from './screens/DrawerContent';
-import Navigatior from './screens/Navigator'
-import {useFonts} from "expo-font";
+import Navigation from './screens/Navigation';
+import { useFonts } from "expo-font";
 
 // const Drawer = createDrawerNavigator();
 
@@ -23,17 +22,16 @@ export default function App() {
     }
 
     return (
-        <NavigationContainer>
-            <RecoilRoot>
-                <FavoriteListProvider>
-                    <Navigatior/>
-                    {/* <Drawer.Navigator 
+        <>
+            {/*    <FavoriteListProvider>*/}
+                    <Navigation/>
+                    {/* <Drawer.Navigator
                         screenOptions={({ navigation }) => ({
                             drawerStyle: {backgroundColor: 'white' },
-                            headerLeft: props => 
-                                <FeatherIcons 
-                                    name="menu" 
-                                    style={styles.drawerIcon} 
+                            headerLeft: props =>
+                                <FeatherIcons
+                                    name="menu"
+                                    style={styles.drawerIcon}
                                     onPress={navigation.toggleDrawer}
                                 />
                         })}
@@ -41,9 +39,8 @@ export default function App() {
                     >
                         <Drawer.Screen name="Apex" component={BottomTabNavigator}/>
                     </Drawer.Navigator> */}
-                </FavoriteListProvider>
-            </RecoilRoot>
-        </NavigationContainer>
+            {/*    </FavoriteListProvider>*/}
+        </>
     );
 }
 
