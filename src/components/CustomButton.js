@@ -36,25 +36,25 @@ const styles = StyleSheet.create({
         padding: 15,
         marginVertical: 5,
         alignItems: 'center',
-        borderRadius: 5
+        borderRadius: 10
     },
     container_PRIMARY: {
-        backgroundColor: '#3B71F3'
+        backgroundColor: '#d9202e'
     },
     container_SECONDARY: {
         borderWidth: 2,
-        borderColor: '#3B71F3'
+        borderColor: '#d9202e'
     },
     title_PRIMARY: {
         color: 'white',
         fontFamily: 'Montserrat'
     },
     title_SECONDARY: {
-        color: '#3B71F3',
+        color: 'white',
         fontFamily: 'Montserrat'
     },
     title_TERTIARY: {
-        color: 'gray',
+        color: 'white',
         fontFamily: 'Montserrat'
     }
 });

@@ -59,7 +59,7 @@ export default function NewPasswordScreen() {
                 <CustomButton
                     title="Back to Sign in"
                     onPress={onSignInPress}
-                    type="TERTIARY"
+                    type="SECONDARY"
                 />
             </View>
         </ScrollView>
@@ -68,7 +68,7 @@ export default function NewPasswordScreen() {
 
 const styles = StyleSheet.create({
     scrollView: {
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     container: {
         alignItems: 'center',
@@ -78,12 +78,12 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#051C60',
+        color: 'white',
         margin: 10,
         fontFamily: 'Montserrat'
     },
     text: {
-        color: 'gray',
+        color: 'white',
         marginVertical: 10,
     },
     link: {

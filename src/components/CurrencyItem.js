@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        fontFamily: 'Montserrat-Medium'
+        fontFamily: 'Montserrat-Medium',
+        color: 'white'
     },
     subtitle: {
         fontSize: 14,

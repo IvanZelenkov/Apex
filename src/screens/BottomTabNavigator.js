@@ -9,7 +9,6 @@ import MessengerScreen from './MessengerScreen';
 import CalculatorsNavigator from './Calculators/CalculatorsNavigator';
 import NewsScreen from './NewsScreen';
 import SettingsNavigator from './Settings/SettingsNavigator';
-import React from "react";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -24,7 +23,7 @@ export default function BottomTabNavigator() {
 
 	return (
         <Tab.Navigator initialRouteName="CryptoScreen" activeColor="black" inactiveColor="white" barStyle={styles.bottomTab}>
-            <Tab.Screen name="CryptoScreen" component={CryptoScreen} options={{tabBarLabel: 'Crypto', tabBarColor: "dodgerblue", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="CryptoScreen" component={CryptoScreen} options={{tabBarLabel: 'Crypto', tabBarColor: "#3a90ff", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="bitcoin" color={color} size={24}/>
                 )}}
             />
@@ -40,11 +39,11 @@ export default function BottomTabNavigator() {
                     <MaterialCommunityIcons name="calculator-variant" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="NewsScreen" component={NewsScreen} options={{ tabBarLabel: 'News', tabBarColor: "#FF0000", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="NewsScreen" component={NewsScreen} options={{ tabBarLabel: 'News', tabBarColor: "#d9202e", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="newspaper" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="SettingsNavigator" component={SettingsNavigator} options={{ tabBarLabel: 'Settings', tabBarColor: "#8434C1", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="SettingsNavigator" component={SettingsNavigator} options={{ tabBarLabel: 'Settings', tabBarColor: "#d94e20", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="cog" color={color} size={24}/>
                 )}}
             />

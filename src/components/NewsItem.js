@@ -35,24 +35,22 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     newsItems: {
-        padding: 16,
+        paddingVertical: 16,
         margin: 4,
         flexDirection: "column",
         justifyContent: "space-between",
-        alignItems: "center",
-        borderWidth: 2,
-        borderColor: "red",
-        borderRadius: 20
+        alignItems: "center"
     },
     title: {
-        fontSize: 16,
+        fontSize: 18,
         fontFamily: 'Montserrat-Medium',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white'
     },
     image: {
-        width: 250,
+        width: "100%",
         height: 250,
-        borderRadius: 20
+        borderRadius: 10
     }
 });
 

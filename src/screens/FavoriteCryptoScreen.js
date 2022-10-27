@@ -1,5 +1,5 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
-import {StyleSheet, View, Text, FlatList, RefreshControl, SafeAreaView, ActivityIndicator} from 'react-native';
+import { useRef, useMemo, useState, useEffect } from 'react';
+import {StyleSheet, FlatList, RefreshControl, SafeAreaView, ActivityIndicator} from 'react-native';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 import Chart from "../components/Chart";
@@ -7,15 +7,6 @@ import CurrencyItem from '../components/CurrencyItem';
 import { getFavoriteCrypto } from '../services/cryptoRequest';
 import { useFavoriteList } from '../contexts/FavoriteListContext';
 import {useFonts} from "expo-font";
-
-const Header = () => (
-	<>
-		<View style={styles.titleWrapper}>
-			<Text style={styles.mainTitle}>FAVORITE</Text>
-		</View>
-		<View style={styles.breaker}/>
-	</>
-);
 
 export default function FavoriteCryptoScreen() {
     const [favoriteCrypto, setFavoriteCrypto] = useState([]);
@@ -74,7 +65,6 @@ export default function FavoriteCryptoScreen() {
 						/>
 					)}
 					onEndReached={() => fetchFavoriteCrypto(((favoriteCrypto.length / 50) + 1), '7d')}
-					ListHeaderComponent={<Header/>}
 					refreshControl={
 						<RefreshControl
 							refreshing={loading}
@@ -107,20 +97,12 @@ export default function FavoriteCryptoScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff'
+		backgroundColor: 'black'
 	},
 	titleWrapper: {
 		alignItems: 'center',
 		marginTop: 20,
 		paddingHorizontal: 16
-	},
-	mainTitle: {
-		fontSize: 24,
-		fontWeight: "900",
-		fontStyle: "italic",
-		color: "#FFAB33",
-		fontFamily: 'Montserrat-SemiBold',
-		letterSpacing: 5
 	},
 	breaker: {
 		height: StyleSheet.hairlineWidth,

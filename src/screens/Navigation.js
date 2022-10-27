@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -11,6 +11,7 @@ import ConfirmEmailScreen from "./Authentication/ConfirmEmailScreen";
 import ForgotPasswordScreen from "./Authentication/ForgotPasswordScreen";
 import NewPasswordScreen from "./Authentication/NewPasswordScreen";
 import BottomTabNavigator from "./BottomTabNavigator";
+import {useFonts} from "expo-font";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,12 @@ export default function Navigation() {
         }
     }
 
+    let [fontsLoaded] = useFonts({
+        'Montserrat': require('../../assets/fonts/Montserrat-Regular.ttf'),
+        'Montserrat-Medium': require('../../assets/fonts/Montserrat-Medium.ttf'),
+        'Montserrat-SemiBold': require('../../assets/fonts/Montserrat-SemiBold.ttf')
+    });
+
     useEffect(() => {
         checkUser();
     }, []);
@@ -40,6 +47,10 @@ export default function Navigation() {
         return () => Hub.remove('auth', listener);
     }, []);
 
+    if (!fontsLoaded) {
+        return <ActivityIndicator size={'large'} />
+    }
+
     if (user === undefined) {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -51,16 +62,34 @@ export default function Navigation() {
     return (
         <NavigationContainer>
             <RecoilRoot>
-                <Stack.Navigator screenOptions={{headerShown: false}}>
+                <Stack.Navigator>
                     {user ? (
-                        <Stack.Screen name="Home" component={BottomTabNavigator}/>
+                        <Stack.Screen
+                            name="Home"
+                            component={BottomTabNavigator}
+                            options={{
+                                title: 'A P E X',
+                                headerStyle: {
+                                    backgroundColor: '#d9202e',
+                                },
+                                headerTintColor: '',
+                                headerTitleStyle: {
+                                    fontSize: 20,
+                                    fontWeight: "900",
+                                    fontStyle: "italic",
+                                    color: "white",
+                                    fontFamily: 'Montserrat-SemiBold',
+                                    letterSpacing: 5
+                                },
+                            }}
+                        />
                     ) : (
                         <>
-                            <Stack.Screen name="SignIn" component={SignInScreen}/>
-                            <Stack.Screen name="SignUp" component={SignUpScreen}/>
-                            <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen}/>
-                            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen}/>
-                            <Stack.Screen name="NewPassword" component={NewPasswordScreen}/>
+                            <Stack.Screen name="SignIn" component={SignInScreen} options={{headerShown: false}}/>
+                            <Stack.Screen name="SignUp" component={SignUpScreen} options={{headerShown: false}}/>
+                            <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} options={{headerShown: false}}/>
+                            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} options={{headerShown: false}}/>
+                            <Stack.Screen name="NewPassword" component={NewPasswordScreen} options={{headerShown: false}}/>
                         </>
                     )}
                 </Stack.Navigator>

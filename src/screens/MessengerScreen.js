@@ -1,25 +1,6 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    FlatList,
-    SafeAreaView,
-    TouchableOpacity,
-    ScrollView,
-    ActivityIndicator
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, ActivityIndicator, ScrollView } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useFonts } from 'expo-font';
-
-const Header = () => (
-    <>
-        <View style={styles.titleWrapper}>
-            <Text style={styles.mainTitle}>MESSENGER</Text>
-        </View>
-        <View style={styles.breaker}/>
-    </>
-);
 
 export default function SettingsScreen() {
     let [fontsLoaded] = useFonts({
@@ -33,8 +14,7 @@ export default function SettingsScreen() {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-            <Header/>
+        <ScrollView style={styles.container}>
             <TouchableOpacity style={styles.settingsItem}>
                 <MaterialCommunityIcons name="account-circle" style={styles.settingsItemIcon}/>
                 <Text style={styles.settingsItemTitle}>Gennadi Baranov</Text>
@@ -55,27 +35,19 @@ export default function SettingsScreen() {
                 <MaterialCommunityIcons name="account-circle" style={styles.settingsItemIcon}/>
                 <Text style={styles.settingsItemTitle}>Aleksandr Kollerov</Text>
             </TouchableOpacity>
-        </SafeAreaView>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     titleWrapper: {
         alignItems: 'center',
         marginTop: 20,
         paddingHorizontal: 16
-    },
-    mainTitle: {
-        fontSize: 24,
-        fontWeight: "900",
-        fontStyle: "italic",
-        color: "#3B8F0D",
-        fontFamily: 'Montserrat-SemiBold',
-        letterSpacing: 5
     },
     breaker: {
         height: StyleSheet.hairlineWidth,
@@ -92,11 +64,11 @@ const styles = StyleSheet.create({
     settingsItemIcon: {
         marginRight: 30,
         fontSize: 70,
-        color: "black"
+        color: 'white'
     },
     settingsItemTitle: {
         fontSize: 22,
-        color: "black",
+        color: 'white',
         fontFamily: 'Montserrat'
     }
 });

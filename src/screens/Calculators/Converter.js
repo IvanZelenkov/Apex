@@ -101,7 +101,6 @@ export default function Converter({ navigation }) {
                     color="black"
                     onPress={() => navigation.goBack()}
                 />
-                <Header/>
             </View>
             <View style={styles.breaker}/>
             <View>
@@ -109,7 +108,7 @@ export default function Converter({ navigation }) {
                     <TextInput
                         style={styles.amountInputField}
                         mode={'outlined'}
-                        outlineColor={'#F98E07'}
+                        outlineColor={'#d9202e'}
                         activeOutlineColor={'black'}
                         label="Amount"
                         value={amount}
@@ -166,20 +165,6 @@ const styles = StyleSheet.create({
     titleWrapper: {
         alignItems: 'center',
         paddingHorizontal: 60
-    },
-    mainTitle: {
-        fontSize: 24,
-        fontWeight: "900",
-        fontStyle: "italic",
-        color: "#F98E07",
-        fontFamily: 'Montserrat-SemiBold',
-        letterSpacing: 5
-    },
-    breaker: {
-        height: StyleSheet.hairlineWidth,
-        marginTop: 16,
-        backgroundColor: "black",
-        borderWidth: 1
     },
     amountInputField: {
         width: 200,

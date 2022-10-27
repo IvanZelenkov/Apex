@@ -40,7 +40,7 @@ export default function ForgotPasswordScreen() {
                 <CustomButton
                     title="Back to Sign in"
                     onPress={onSignInPress}
-                    type="TERTIARY"
+                    type="SECONDARY"
                 />
             </View>
         </ScrollView>
@@ -49,22 +49,22 @@ export default function ForgotPasswordScreen() {
 
 const styles = StyleSheet.create({
     scrollView: {
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     container: {
         alignItems: 'center',
         padding: 20,
-        marginTop: 50
+        marginTop: 20
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#051C60',
+        color: 'white',
         margin: 10,
         fontFamily: 'Montserrat'
     },
     text: {
-        color: 'gray',
+        color: 'white',
         marginVertical: 10,
     },
     link: {

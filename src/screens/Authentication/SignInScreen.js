@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 
-import Logo from '../../../assets/images/logo.png';
+import Logo from '../../../assets/images/logo-removed-bg.png';
 import CustomInput from "../../components/CustomInput";
 import SocialSignInButtons from "../../components/SocialSignInButtons";
 import CustomButton from "../../components/CustomButton";
@@ -74,9 +74,9 @@ export default function SignInScreen() {
                     onPress={onForgotPasswordPress}
                     type="SECONDARY"
                 />
-                <SocialSignInButtons/>
+                {/*<SocialSignInButtons/>*/}
                 <CustomButton
-                    title="Don't have an account? Create one!"
+                    title="Don't have an account? Sign Up"
                     onPress={onSignUpPress}
                     type="SECONDARY"
                 />
@@ -87,7 +87,7 @@ export default function SignInScreen() {
 
 const styles = StyleSheet.create({
     scrollView: {
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     container: {
         alignItems: 'center',

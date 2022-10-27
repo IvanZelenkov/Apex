@@ -1,19 +1,10 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {StyleSheet, Text, View, FlatList, SafeAreaView, RefreshControl, ActivityIndicator} from 'react-native';
 import axios from "axios";
 import NewsItem from '../components/NewsItem';
 import { getMarketNews } from '../services/cryptoRequest';
 import { logger } from 'react-native-logs';
 import { useFonts } from "expo-font";
-
-const Header = () => (
-	<>
-		<View style={styles.titleWrapper}>
-			<Text style={styles.mainTitle}>NEWS</Text>
-		</View>
-		<View style={styles.breaker}/>
-	</>
-);
 
 export default function NewsScreen() {
 	const [data, setData] = useState([]);
@@ -94,7 +85,6 @@ export default function NewsScreen() {
 						/>
 					)}
 					// onEndReached={() => fetchCryptoNews(((data.length / 50) + 1))}
-					ListHeaderComponent={<Header/>}
 					refreshControl={
 						<RefreshControl
 							refreshing={loading}
@@ -110,25 +100,17 @@ export default function NewsScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff'
+		backgroundColor: 'black'
 	},
 	titleWrapper: {
 		alignItems: 'center',
 		marginTop: 20,
 		paddingHorizontal: 16
 	},
-	mainTitle: {
-		fontSize: 24,
-		fontWeight: "900",
-		fontStyle: "italic",
-		color: "#FF0000",
-		fontFamily: 'Montserrat-SemiBold',
-		letterSpacing: 5
-	},
 	breaker: {
 		height: StyleSheet.hairlineWidth,
 		marginTop: 16,
-		backgroundColor: "black",
+		backgroundColor: 'black',
         borderWidth: 1
 	},
 	bottomSheet: {

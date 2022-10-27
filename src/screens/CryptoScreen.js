@@ -2,11 +2,11 @@ import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, RefreshControl, ActivityIndicator } from 'react-native';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useFonts } from 'expo-font';
+import { Auth } from "aws-amplify";
 
 import Chart from "../components/Chart";
 import CurrencyItem from '../components/CurrencyItem';
 import { getMarketData } from '../services/cryptoRequest';
-import {Auth} from "aws-amplify";
 
 const Header = () => (
 	<>
@@ -47,10 +47,6 @@ export default function CryptoScreen() {
 		bottomSheetModalRef.current.present();
 	};
 
-	const signOut = () => {
-		Auth.signOut();
-	}
-
 	let [fontsLoaded] = useFonts({
 		'Montserrat': require('../../assets/fonts/Montserrat-Regular.ttf'),
 		'Montserrat-Medium': require('../../assets/fonts/Montserrat-Medium.ttf'),
@@ -67,20 +63,6 @@ export default function CryptoScreen() {
 
 	return (
 		<BottomSheetModalProvider style={styles.bottomSheetWrapper}>
-			<View style={{marginTop: 50}}>
-				<Text
-					onPress={signOut}
-					style={{
-						width: '100%',
-						textAlign: 'center',
-						color: 'red',
-						marginTop: 'auto',
-						marginVertical: 20,
-						fontSize: 20,
-					}}>
-					Sign out
-				</Text>
-			</View>
 			<SafeAreaView style={styles.container}>
 				<FlatList
 					keyExtractor={(item) => item.id}
@@ -96,7 +78,6 @@ export default function CryptoScreen() {
 						/>
 					)}
 					onEndReached={() => fetchCrypto(((data.length / 50) + 1), '7d')}
-					ListHeaderComponent={<Header/>}
 					refreshControl={
 						<RefreshControl
 							refreshing={loading}
@@ -129,26 +110,12 @@ export default function CryptoScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff'
+		backgroundColor: 'black'
 	},
 	titleWrapper: {
 		alignItems: 'center',
 		marginTop: 20,
 		paddingHorizontal: 16
-	},
-	mainTitle: {
-		fontSize: 24,
-		fontWeight: "900",
-		fontStyle: "italic",
-		color: "#1e90ff",
-		fontFamily: 'Montserrat-SemiBold',
-		letterSpacing: 5
-	},
-	breaker: {
-		height: StyleSheet.hairlineWidth,
-		marginTop: 16,
-		backgroundColor: "black",
-        borderWidth: 1
 	},
 	bottomSheet: {
 		shadowColor: "black",

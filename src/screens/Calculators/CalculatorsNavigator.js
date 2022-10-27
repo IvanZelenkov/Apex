@@ -1,5 +1,4 @@
-import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { useFonts } from "expo-font";
 import { createStackNavigator } from '@react-navigation/stack';
 

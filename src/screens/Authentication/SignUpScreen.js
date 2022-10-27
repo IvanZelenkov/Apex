@@ -136,7 +136,7 @@ export default function SignUpScreen() {
                         Privacy Policy
                     </Text>
                 </Text>
-                <SocialSignInButtons/>
+                {/*<SocialSignInButtons/>*/}
                 <CustomButton
                     title="Have an account? Sign in"
                     onPress={onSignInPress}
@@ -148,7 +148,7 @@ export default function SignUpScreen() {
 
 const styles = StyleSheet.create({
     scrollView: {
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     container: {
         alignItems: 'center',
@@ -165,14 +165,14 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontFamily: 'Montserrat',
-        color: '#051C60',
+        color: 'white',
         margin: 10
     },
     text: {
-        color: 'gray',
+        color: 'white',
         marginVertical: 10
     },
     link: {
-        color: '#FDB075'
+        color: '#3a90ff'
     }
 });
