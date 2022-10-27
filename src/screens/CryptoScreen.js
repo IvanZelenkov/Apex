@@ -1,21 +1,11 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, RefreshControl, ActivityIndicator } from 'react-native';
+import { useRef, useMemo, useState, useEffect } from 'react';
+import { StyleSheet, FlatList, SafeAreaView, RefreshControl, ActivityIndicator } from 'react-native';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useFonts } from 'expo-font';
-import { Auth } from "aws-amplify";
 
 import Chart from "../components/Chart";
 import CurrencyItem from '../components/CurrencyItem';
 import { getMarketData } from '../services/cryptoRequest';
-
-const Header = () => (
-	<>
-		<View style={styles.titleWrapper}>
-			<Text style={styles.mainTitle}>CRYPTO MARKET</Text>
-		</View>
-		<View style={styles.breaker}/>
-	</>
-);
 
 export default function CryptoScreen() {
 	const [data, setData] = useState([]);

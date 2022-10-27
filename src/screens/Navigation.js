@@ -11,7 +11,7 @@ import ConfirmEmailScreen from "./Authentication/ConfirmEmailScreen";
 import ForgotPasswordScreen from "./Authentication/ForgotPasswordScreen";
 import NewPasswordScreen from "./Authentication/NewPasswordScreen";
 import BottomTabNavigator from "./BottomTabNavigator";
-import {useFonts} from "expo-font";
+import { useFonts } from "expo-font";
 
 const Stack = createNativeStackNavigator();
 

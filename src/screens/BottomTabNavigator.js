@@ -8,7 +8,7 @@ import FavoriteCryptoScreen from './FavoriteCryptoScreen';
 import MessengerScreen from './MessengerScreen';
 import CalculatorsNavigator from './Calculators/CalculatorsNavigator';
 import NewsScreen from './NewsScreen';
-import SettingsNavigator from './Settings/SettingsNavigator';
+import SettingsNavigator from './Profile/ProfileNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -43,7 +43,7 @@ export default function BottomTabNavigator() {
                     <MaterialCommunityIcons name="newspaper" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="SettingsNavigator" component={SettingsNavigator} options={{ tabBarLabel: 'Settings', tabBarColor: "#d94e20", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="SettingsNavigator" component={SettingsNavigator} options={{ tabBarLabel: 'Settings', tabBarColor: "#7366e4", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="cog" color={color} size={24}/>
                 )}}
             />

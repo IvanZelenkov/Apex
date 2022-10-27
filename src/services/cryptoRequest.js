@@ -64,9 +64,9 @@ export const getMarketNews = async () => {
     };
 
     axios.request(options).then(function (response) {
-        var log = logger.createLogger();
-        log.info("DATA: ")
-        log.info(response.data);
+        // var log = logger.createLogger();
+        // log.info("DATA: ")
+        // log.info(response.data);
         // return response.data;
     }).catch(function (error) {
         console.error(error);
