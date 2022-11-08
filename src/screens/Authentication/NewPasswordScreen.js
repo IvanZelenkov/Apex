@@ -24,7 +24,7 @@ export default function NewPasswordScreen() {
     };
 
     return (
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+        <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps='handled' style={styles.scrollView}>
             <View style={styles.container}>
                 <Text style={styles.title}>Reset Your Password</Text>
                 <CustomInput

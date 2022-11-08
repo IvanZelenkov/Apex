@@ -1,5 +1,5 @@
 import { useRef, useMemo, useState, useEffect } from 'react';
-import { StyleSheet, FlatList, SafeAreaView, RefreshControl, ActivityIndicator } from 'react-native';
+import {StyleSheet, FlatList, SafeAreaView, RefreshControl, ActivityIndicator, View} from 'react-native';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useFonts } from 'expo-font';
 
@@ -48,7 +48,11 @@ export default function CryptoScreen() {
 	}, []);
 
 	if (!fontsLoaded) {
-		return <ActivityIndicator size={'large'} />
+		return (
+			<View style={{flex: 1, justifyContent: 'center'}}>
+				<ActivityIndicator size={'large'} color={'#d9202e'}/>
+			</View>
+		);
 	}
 
 	return (
@@ -100,7 +104,7 @@ export default function CryptoScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'black'
+		backgroundColor: 'white'
 	},
 	titleWrapper: {
 		alignItems: 'center',

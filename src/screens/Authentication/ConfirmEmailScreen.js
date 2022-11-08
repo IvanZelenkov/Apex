@@ -37,7 +37,7 @@ export default function ConfirmEmailScreen() {
     };
 
     return (
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+        <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps='handled' style={styles.scrollView}>
             <View style={styles.container}>
                 <Text style={styles.title}>Confirm your email</Text>
                 <CustomInput
@@ -73,7 +73,7 @@ export default function ConfirmEmailScreen() {
 
 const styles = StyleSheet.create({
     scrollView: {
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     container: {
         alignItems: 'center',
@@ -83,15 +83,12 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#051C60',
+        color: 'white',
         margin: 10,
         fontFamily: 'Montserrat'
     },
     text: {
         color: 'gray',
         marginVertical: 10,
-    },
-    link: {
-        color: '#FDB075',
-    },
+    }
 });

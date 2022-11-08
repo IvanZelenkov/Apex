@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ActivityIndicator, FlatList } from 'react-native';
+import { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, ActivityIndicator } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { TextInput } from 'react-native-paper';
-import { logger } from 'react-native-logs';
 import { useFonts } from 'expo-font';
 import axios from 'axios';
 
 import { getMarketData } from '../../services/cryptoRequest';
-
-const Header = () => (
-    <>
-        <View style={styles.titleWrapper}>
-            <Text style={styles.mainTitle}>CONVERTER</Text>
-        </View>
-    </>
-);
 
 export default function Converter({ navigation }) {
     const [cryptocurrencies, setCryptocurrencies] = useState([]);
@@ -26,8 +17,6 @@ export default function Converter({ navigation }) {
     const [selectedCurrency, setSelectedCurrency] = useState('usd');
     const [selectedCrypto, setSelectedCrypto] = useState('bitcoin');
     const [loading, setLoading] = useState(false);
-
-    var log = logger.createLogger();
 
     const getParticularCryptoData = async (currency, cryptoId, timing) => {
         try {
@@ -88,7 +77,11 @@ export default function Converter({ navigation }) {
     }, []);
 
     if (!fontsLoaded) {
-        return <ActivityIndicator size={'large'} />
+        return (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#d9202e'}/>
+            </View>
+        );
     }
 
     return (

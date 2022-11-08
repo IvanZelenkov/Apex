@@ -66,7 +66,11 @@ export default function NewsScreen() {
 	}, []);
 
 	if (!fontsLoaded) {
-		return <ActivityIndicator size={'large'} />
+		return (
+			<View style={{flex: 1, justifyContent: 'center'}}>
+				<ActivityIndicator size={'large'} color={'#d9202e'}/>
+			</View>
+		);
 	}
 
 	return (
@@ -100,7 +104,7 @@ export default function NewsScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'black'
+		backgroundColor: 'white'
 	},
 	titleWrapper: {
 		alignItems: 'center',

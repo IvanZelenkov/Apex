@@ -1,11 +1,11 @@
 import React, { useContext, createContext, useState, useEffect } from 'react';
-import {StyleSheet, View, Text, Image, Dimensions, TouchableOpacity, ActivityIndicator} from 'react-native';
+import { StyleSheet, View, Text, Image, Dimensions, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { ChartDot, ChartPath, ChartPathProvider, ChartYLabel } from '@rainbow-me/animated-charts';
 import { useSharedValue } from 'react-native-reanimated';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { useFavoriteList } from '../contexts/FavoriteListContext';
-import {useFonts} from "expo-font";
+import { useFonts } from "expo-font";
 
 export const { width: SIZE } = Dimensions.get('window');
   

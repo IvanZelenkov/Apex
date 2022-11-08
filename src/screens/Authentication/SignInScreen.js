@@ -37,7 +37,7 @@ export default function SignInScreen() {
     }
 
     return (
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+        <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps='handled' style={styles.scrollView}>
             <View style={styles.container}>
                 <Image
                     source={Logo}

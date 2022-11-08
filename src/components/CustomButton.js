@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, Pressable, ActivityIndicator} from 'react-native';
+import {StyleSheet, Text, Pressable, ActivityIndicator, View} from 'react-native';
 import {useFonts} from "expo-font";
 
 export default function CustomButton({ title, onPress, type = "PRIMARY", backgroundColor, foregroundColor }) {
@@ -10,7 +10,11 @@ export default function CustomButton({ title, onPress, type = "PRIMARY", backgro
     });
 
     if (!fontsLoaded) {
-        return <ActivityIndicator size={'large'} />
+        return (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#d9202e'}/>
+            </View>
+        );
     }
 
     return (

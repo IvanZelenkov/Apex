@@ -48,13 +48,17 @@ export default function Navigation() {
     }, []);
 
     if (!fontsLoaded) {
-        return <ActivityIndicator size={'large'} />
+        return (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#d9202e'}/>
+            </View>
+        );
     }
 
     if (user === undefined) {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <ActivityIndicator/>
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#d9202e'}/>
             </View>
         );
     }
@@ -80,7 +84,7 @@ export default function Navigation() {
                                     color: "white",
                                     fontFamily: 'Montserrat-SemiBold',
                                     letterSpacing: 5
-                                },
+                                }
                             }}
                         />
                     ) : (

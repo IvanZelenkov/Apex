@@ -15,7 +15,11 @@ const CurrencyItem = (props) => {
     });
 
     if (!fontsLoaded) {
-        return <ActivityIndicator size={'large'} />
+        return (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#d9202e'}/>
+            </View>
+        );
     }
 
     return (
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontFamily: 'Montserrat-Medium',
         textAlign: 'center',
-        color: 'white'
+        color: 'black'
     },
     image: {
         width: "100%",

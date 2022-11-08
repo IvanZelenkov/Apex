@@ -11,7 +11,11 @@ export default function CustomInput({ control, name, rules = {}, placeholder, se
     });
 
     if (!fontsLoaded) {
-        return <ActivityIndicator size={'large'} />
+        return (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#d9202e'}/>
+            </View>
+        );
     }
 
     return (

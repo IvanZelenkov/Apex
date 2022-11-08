@@ -55,7 +55,7 @@ export default function SignUpScreen() {
     }
 
     return (
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+        <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps='handled' style={styles.scrollView}>
             <View style={styles.container}>
                 <Text style={styles.title}>Create an Account</Text>
                 <CustomInput

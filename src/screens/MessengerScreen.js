@@ -1,8 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, ActivityIndicator, ScrollView } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useState } from "react";
+import {StyleSheet, Text, TouchableOpacity, ActivityIndicator, ScrollView, SafeAreaView, View} from 'react-native';
 import { useFonts } from 'expo-font';
+import { ChannelList, Channel, MessageList, MessageInput } from "stream-chat-expo";
 
 export default function SettingsScreen() {
+    const [selectedChannel, setSelectedChannel] = useState(null);
+
     let [fontsLoaded] = useFonts({
         'Montserrat': require('../../assets/fonts/Montserrat-Regular.ttf'),
         'Montserrat-Medium': require('../../assets/fonts/Montserrat-Medium.ttf'),
@@ -10,65 +13,40 @@ export default function SettingsScreen() {
     });
 
     if (!fontsLoaded) {
-        return <ActivityIndicator size={'large'} />
+        return (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#d9202e'}/>
+            </View>
+        );
+    }
+
+    const onChannelPressed = (channel) => {
+        setSelectedChannel(channel);
     }
 
     return (
-        <ScrollView style={styles.container}>
-            <TouchableOpacity style={styles.settingsItem}>
-                <MaterialCommunityIcons name="account-circle" style={styles.settingsItemIcon}/>
-                <Text style={styles.settingsItemTitle}>Gennadi Baranov</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.settingsItem}>
-                <MaterialCommunityIcons name="account-circle" style={styles.settingsItemIcon}/>
-                <Text style={styles.settingsItemTitle}>Sofiya Dmitrieva</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.settingsItem}>
-                <MaterialCommunityIcons name="account-circle" style={styles.settingsItemIcon}/>
-                <Text style={styles.settingsItemTitle}>Katia Nikolaeva</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.settingsItem}>
-                <MaterialCommunityIcons name="account-circle" style={styles.settingsItemIcon}/>
-                <Text style={styles.settingsItemTitle}>Nikolay Zhvikov</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.settingsItem}>
-                <MaterialCommunityIcons name="account-circle" style={styles.settingsItemIcon}/>
-                <Text style={styles.settingsItemTitle}>Aleksandr Kollerov</Text>
-            </TouchableOpacity>
-        </ScrollView>
+        <>
+            { selectedChannel ? (
+                    <Channel channel={selectedChannel}>
+                        <MessageList/>
+                        <Text
+                            style={{margin: 50}}
+                            onPress={() => setSelectedChannel(null)}
+                        >
+                            Go back
+                        </Text>
+                        <MessageInput/>
+                    </Channel>
+                ) : (
+                    <ChannelList onSelect={onChannelPressed}/>
+            )}
+        </>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black'
-    },
-    titleWrapper: {
-        alignItems: 'center',
-        marginTop: 20,
-        paddingHorizontal: 16
-    },
-    breaker: {
-        height: StyleSheet.hairlineWidth,
-		marginTop: 16,
-		backgroundColor: "black",
-        borderWidth: 1
-    },
-    settingsItem: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: 30
-    },
-    settingsItemIcon: {
-        marginRight: 30,
-        fontSize: 70,
-        color: 'white'
-    },
-    settingsItemTitle: {
-        fontSize: 22,
-        color: 'white',
-        fontFamily: 'Montserrat'
+        backgroundColor: 'white'
     }
 });

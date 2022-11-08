@@ -43,9 +43,9 @@ export const getMarketData = async (cryptoPageNumber = 1, timing = '7d') => {
     }
 }
 
-export const getFavoriteCrypto = async (cryptoPageNumber = 1, cryptoIds, timing = '7d') => {
+export const getFavoriteCrypto = async (numberOfCryptosPerPage = 1, cryptoIds, timing = '7d') => {
     try {
-        const response =  await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptoIds}&order=market_cap_desc&per_page=${cryptoPageNumber}&page=1&sparkline=true&price_change_percentage=${timing}`);
+        const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptoIds}&order=market_cap_desc&per_page=${numberOfCryptosPerPage}&page=1&sparkline=true&price_change_percentage=${timing}`);
         return formatMarketData(response.data);
     } catch (error) {
         console.log(error.message);

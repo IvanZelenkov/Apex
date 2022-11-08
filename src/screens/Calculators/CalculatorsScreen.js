@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, ActivityIndicator, ScrollView } from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, ActivityIndicator, ScrollView, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -16,7 +16,11 @@ export default function SettingsScreen() {
 	});
 
 	if (!fontsLoaded) {
-		return <ActivityIndicator size={'large'} />
+		return (
+			<View style={{flex: 1, justifyContent: 'center'}}>
+				<ActivityIndicator size={'large'} color={'#d9202e'}/>
+			</View>
+		);
 	}
 
 	return (
@@ -40,7 +44,7 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'black'
+		backgroundColor: 'white'
 	},
 	titleWrapper: {
 		alignItems: 'center',
@@ -56,11 +60,11 @@ const styles = StyleSheet.create({
 	settingsItemIcon: {
 		marginRight: 30,
 		fontSize: 30,
-		color: 'white'
+		color: 'black'
 	},
 	settingsItemTitle: {
 		fontSize: 22,
-		color: 'white',
+		color: 'black',
 		flexShrink: 1,
 		fontFamily: 'Montserrat'
 	}

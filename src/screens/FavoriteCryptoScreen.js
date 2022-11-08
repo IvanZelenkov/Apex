@@ -1,12 +1,13 @@
 import { useRef, useMemo, useState, useEffect } from 'react';
-import {StyleSheet, FlatList, RefreshControl, SafeAreaView, ActivityIndicator} from 'react-native';
+import {StyleSheet, FlatList, RefreshControl, SafeAreaView, ActivityIndicator, View} from 'react-native';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { logger } from "react-native-logs";
 
 import Chart from "../components/Chart";
 import CurrencyItem from '../components/CurrencyItem';
 import { getFavoriteCrypto } from '../services/cryptoRequest';
 import { useFavoriteList } from '../contexts/FavoriteListContext';
-import {useFonts} from "expo-font";
+import { useFonts } from "expo-font";
 
 export default function FavoriteCryptoScreen() {
     const [favoriteCrypto, setFavoriteCrypto] = useState([]);
@@ -23,7 +24,7 @@ export default function FavoriteCryptoScreen() {
 		if (loading) return;
 		
 		setLoading(true);
-		const favoriteCrypto = await getFavoriteCrypto(1, formatCryptoString(), '7d');
+		const favoriteCrypto = await getFavoriteCrypto(favoriteCryptoIds.length, formatCryptoString(), '7d');
 		setFavoriteCrypto(favoriteCrypto);
 		setLoading(false);
 	}
@@ -45,7 +46,11 @@ export default function FavoriteCryptoScreen() {
     }, [favoriteCryptoIds]);
 
 	if (!fontsLoaded) {
-		return <ActivityIndicator size={'large'} />
+		return (
+			<View style={{flex: 1, justifyContent: 'center'}}>
+				<ActivityIndicator size={'large'} color={'#d9202e'}/>
+			</View>
+		);
 	}
 
     return (
@@ -97,7 +102,7 @@ export default function FavoriteCryptoScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'black'
+		backgroundColor: 'white'
 	},
 	titleWrapper: {
 		alignItems: 'center',

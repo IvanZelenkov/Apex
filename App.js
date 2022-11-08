@@ -1,51 +1,86 @@
-import React from 'react';
-import { ActivityIndicator, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import FeatherIcons from 'react-native-vector-icons/Feather';
+import { useEffect, useState } from 'react';
+import {ActivityIndicator, StatusBar, StyleSheet, View} from 'react-native';
 import { useFonts } from "expo-font";
-import { Amplify } from 'aws-amplify';
+import {Amplify, Auth} from 'aws-amplify';
 import awsExports from './src/aws-exports';
+import { OverlayProvider, Chat, ChannelList } from "stream-chat-expo";
+import { StreamChat } from 'stream-chat';
+import { logger } from "react-native-logs";
+import { SafeAreaProvider } from "react-native-safe-area-context/src/SafeAreaContext";
 
-import BottomTabNavigator from './src/screens/BottomTabNavigator';
 import FavoriteListProvider from './src/contexts/FavoriteListContext';
-import { DrawerContent } from './src/screens/DrawerContent';
 import Navigation from './src/screens/Navigation';
 
 Amplify.configure(awsExports);
 
-// const Drawer = createDrawerNavigator();
+const API_KEY = "agv89m6cch9h";
+const client = StreamChat.getInstance(API_KEY);
 
 export default function App() {
+    const [isUserReady, setUserReady] = useState(false);
+    const [user, setUser] = useState(undefined);
+
+    let log = logger.createLogger();
+
     let [fontsLoaded] = useFonts({
-        'Montserrat': require('./assets/fonts/Montserrat-Regular.ttf'),
+        'Montserrat': require('./assets/fonts/Montserrat-Regular.ttf')
     });
 
-    if (!fontsLoaded) {
-        return <ActivityIndicator size={'large'} />
-    }
+    useEffect(() => {
+        const connectAuthenticatedUser = async () => {
+            let authUser = {};
+            try {
+                authUser = await Auth.currentAuthenticatedUser({bypassCache: true});
+                setUser(authUser.attributes);
+            } catch (error) {
+                setUser(null);
+            }
 
-    return (
-        <>
-                <FavoriteListProvider>
-                    <Navigation/>
-                    {/* <Drawer.Navigator
-                        screenOptions={({ navigation }) => ({
-                            drawerStyle: {backgroundColor: 'white' },
-                            headerLeft: props =>
-                                <FeatherIcons
-                                    name="menu"
-                                    style={styles.drawerIcon}
-                                    onPress={navigation.toggleDrawer}
-                                />
-                        })}
-                        drawerContent={props => <DrawerContent {...props}/>}
-                    >
-                        <Drawer.Screen name="Apex" component={BottomTabNavigator}/>
-                    </Drawer.Navigator> */}
-                </FavoriteListProvider>
-        </>
-    );
+            await client.connectUser({
+                id: 'client1',
+                name: authUser.attributes.name,
+                email: authUser.attributes.email
+            }, client.devToken('client1'));
+
+            log.info("User connected.");
+
+            // create a channel
+            const channel = client.channel('messaging', 'apexchannel1', {
+                name: 'Apex Channel'
+            });
+            await channel.create();
+
+            log.info("Channel created.");
+
+            setUserReady(true);
+        };
+
+        connectAuthenticatedUser();
+
+        return () => client.disconnectUser();
+    }, []);
+
+    if (!isUserReady || !fontsLoaded) {
+        return (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#d9202e'}/>
+            </View>
+        );
+    }
+    else {
+        return (
+            <SafeAreaProvider>
+                <StatusBar/>
+                <OverlayProvider>
+                    <Chat client={client}>
+                        <FavoriteListProvider>
+                            <Navigation/>
+                        </FavoriteListProvider>
+                    </Chat>
+                </OverlayProvider>
+            </SafeAreaProvider>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
