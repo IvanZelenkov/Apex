@@ -3386,9 +3386,9 @@
     exec-async "^2.2.0"
 
 "@expo/package-manager@~0.0.52":
-  version "0.0.56"
-  resolved "https://registry.yarnpkg.com/@expo/package-manager/-/package-manager-0.0.56.tgz#214a8db48752cde968827c20c5b54a88187b5422"
-  integrity sha512-PGk34uz4XDyhoNIlPh2D+BDsiXYuW2jXavTiax8d32uvHlRO6FN0cAsqlWD6fx3H2hRn8cU/leTuc4M7pYovCQ==
+  version "0.0.57"
+  resolved "https://registry.yarnpkg.com/@expo/package-manager/-/package-manager-0.0.57.tgz#1cd71da0632c52a9a001b45e5d0d7e1e16de97d3"
+  integrity sha512-Y4RpSL9EqaPF+Vd2GrK6r7Xx7Dv0Xdq3AGAD9C0KwV21WqP/scj/dpjxFY+ABwmdhNsFzYXb8fmDyh4tiKenPQ==
   dependencies:
     "@expo/json-file" "8.2.36"
     "@expo/spawn-async" "^1.5.0"
@@ -8330,6 +8330,11 @@ react-native-reanimated@~2.8.0:
     lodash.isequal "^4.5.0"
     setimmediate "^1.0.5"
     string-hash-64 "^1.0.3"
+
+react-native-responsive-screen@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-responsive-screen/-/react-native-responsive-screen-1.4.2.tgz#45280826d24f9accbfdf46a36cb8e6d780f76f28"
+  integrity sha512-BLYz0UUpeohrib7jbz6wDmtBD5OmiuMRko4IT8kIF63taXPod/c5iZgmWnr5qOnK8hMuKiGMvsM3sC+eHX/lEQ==
 
 react-native-safari-view@^2.1.0:
   version "2.1.0"
