@@ -1,6 +1,5 @@
 import axios from 'axios';
 import moment from 'moment';
-import { logger } from 'react-native-logs';
 
 const formatSparkline = (numbers) => {
     const sevenDaysAgo = moment().subtract(7, 'days').unix();
@@ -64,9 +63,8 @@ export const getMarketNews = async () => {
     };
 
     axios.request(options).then(function (response) {
-        // var log = logger.createLogger();
-        // log.info("DATA: ")
-        // log.info(response.data);
+        // console.log("DATA: ")
+        // console.log(response.data);
         // return response.data;
     }).catch(function (error) {
         console.error(error);

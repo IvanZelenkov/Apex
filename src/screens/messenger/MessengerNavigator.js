@@ -5,7 +5,6 @@ import { OverlayProvider, Chat } from "stream-chat-expo";
 import { Auth } from "aws-amplify";
 import { useEffect, useState } from "react";
 import { StreamChat } from "stream-chat";
-import { logger } from "react-native-logs";
 
 import MessengerScreen from './MessengerScreen';
 import UsersScreen from "./UsersScreen";
@@ -19,8 +18,6 @@ const stream_client = StreamChat.getInstance(API_KEY);
 export default function MessengerNavigator() {
     const [isUserReady, setUserReady] = useState(false);
     const [user, setUser] = useState(undefined);
-
-    const log = logger.createLogger();
 
     const checkUser = async () => {
         let authUser = {};
@@ -37,11 +34,11 @@ export default function MessengerNavigator() {
     const connectAuthenticatedUser = async (username, fullName, email) => {
         // connect the user
         await stream_client.connectUser({id: username, name: fullName, email: email}, stream_client.devToken(username));
-        log.info("User connected.");
+        console.log("User connected.");
 
-        // create a channel
-        await stream_client.channel('livestream', 'apexMainChannel', {name: 'Apex Channel'}).create();
-        log.info("Channel created.");
+        // // create a channel
+        // await stream_client.channel('messaging', 'apexChannel', {name: 'Apex Group'}).create();
+        // console.log("Channel created.");
 
         setUserReady(true);
     };
@@ -68,6 +65,7 @@ export default function MessengerNavigator() {
                             name="MessengerScreen"
                             component={MessengerScreen}
                             options={{ headerShown: false }}
+                            initialParams={{ user: user }}
                         />
                         <Stack.Screen
                             name="UsersScreen"

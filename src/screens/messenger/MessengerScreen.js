@@ -10,10 +10,11 @@ import { Searchbar } from "react-native-paper";
 import UsersScreen from './UsersScreen';
 import ChannelListScreen from "./ChannelListScreen";
 
-export default function MessengerScreen() {
+export default function MessengerScreen({ route }) {
     const [searchQuery, setSearchQuery] = useState('');
     const onChangeSearch = query => setSearchQuery(query);
     const navigation = useNavigation();
+    const { user } = route.params;
 
     let [fontsLoaded] = useFonts({
         'Montserrat': require('../../../assets/fonts/Montserrat-Regular.ttf'),
@@ -44,7 +45,7 @@ export default function MessengerScreen() {
                     <FontAwesome5 name="users" color={'#d9202e'} size={25}/>
                 </TouchableOpacity>
             </View>
-            <ChannelListScreen/>
+            <ChannelListScreen user={user}/>
         </SafeAreaProvider>
     );
 }

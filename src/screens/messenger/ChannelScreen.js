@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 import { View, ActivityIndicator } from "react-native";
 import { Channel, MessageList, MessageInput, useChatContext } from "stream-chat-expo";
-import { logger } from "react-native-logs";
 
 export default function ChannelScreen({ route, navigation }) {
     const [channel, setChannel] = useState(null);
     const { channelId } = route.params;
     const { client } = useChatContext();
-    const log = logger.createLogger();
 
     useEffect(() => {
         const fetchChannel = async () => {
             setChannel(null);
-            log.info("fetching channel", channelId);
+            console.log("fetching channel", channelId);
             const channels = await client.queryChannels({ id: { $eq: channelId } });
             if (channels.length > 0) {
-                log.info("updating channel state");
+                console.log("updating channel state");
                 setChannel(channels[0]);
             } else {
-                log.info("No channels found");
+                console.log("No channels found");
             }
         };
 

@@ -3,7 +3,6 @@ import { StyleSheet, View, FlatList, SafeAreaView, RefreshControl, ActivityIndic
 import axios from "axios";
 import NewsItem from '../../components/NewsItem';
 import { getMarketNews } from '../../services/cryptoRequest';
-import { logger } from 'react-native-logs';
 import { useFonts } from "expo-font";
 
 export default function NewsScreen() {
@@ -17,8 +16,7 @@ export default function NewsScreen() {
 	// 	setLoading(true);
 	// 	const marketData = await getMarketNews();
 	//
-	// 	let log = logger.createLogger();
-	// 	log.info(marketData);
+	// 	console.log(marketData);
 	//
 	// 	// setData((currentCrypto) => ([...currentCrypto, ...marketData]));
 	// 	setLoading(false);
