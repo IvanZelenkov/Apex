@@ -6,9 +6,10 @@ import { useChatContext } from "stream-chat-expo";
 
 import UserListItem from "../../components/UserListItem";
 
-export default function UsersScreen() {
+export default function UsersScreen({ route }) {
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const { user: authUser } = route.params;
 
     const { client } = useChatContext();
 
@@ -16,7 +17,9 @@ export default function UsersScreen() {
         setIsLoading(true);
         const response = await client.queryUsers({});
         // filter out the admin account
-        const result = response.users.filter(user => user.id !== 'ivan-zelenkov');
+        const result = response.users.filter(user => {
+            return user.role !== 'admin' && user.id !== authUser.preferred_username
+        });
         setUsers(result);
         setIsLoading(false);
     }

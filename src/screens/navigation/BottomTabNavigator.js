@@ -7,7 +7,7 @@ import FavoriteCryptoScreen from '../cryptoMarket/FavoriteCryptoScreen';
 import MessengerNavigator from '../messenger/MessengerNavigator';
 import CalculatorsNavigator from '../calculators/CalculatorsNavigator';
 import NewsScreen from '../news/NewsScreen';
-import ProfileScreen from '../userProfile/ProfileScreen';
+import ProfileNavigator from '../userProfile/ProfileNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -34,7 +34,7 @@ export default function BottomTabNavigator() {
                     <MaterialCommunityIcons name="newspaper" color={color} size={24}/>
                 )}}
             />
-            <Tab.Screen name="ProfileScreen" component={ProfileScreen} options={{ tabBarLabel: 'Profile', tabBarColor: "#3a90ff", tabBarIcon: ({ color }) => (
+            <Tab.Screen name="ProfileNavigator" component={ProfileNavigator} options={{ tabBarLabel: 'Profile', tabBarColor: "#3a90ff", tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="account-circle" color={color} size={24}/>
                 )}}
             />

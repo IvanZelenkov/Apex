@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ActivityIndicator } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { TextInput } from 'react-native-paper';
 import { useFonts } from 'expo-font';
@@ -88,11 +89,11 @@ export default function ConverterScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <MaterialCommunityIcons
-                    name="arrow-left"
+                <Ionicons
+                    name='chevron-back'
+                    color='black'
                     size={30}
                     style={styles.backArrow}
-                    color="black"
                     onPress={() => navigation.goBack()}
                 />
             </View>

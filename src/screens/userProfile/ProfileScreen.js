@@ -2,14 +2,16 @@ import { useEffect, useState} from 'react';
 import { View, SafeAreaView, ScrollView, StyleSheet, Share, ActivityIndicator } from 'react-native';
 import { Avatar, Title, Caption, Text, TouchableRipple } from 'react-native-paper';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { Auth } from "aws-amplify";
+import { useFonts } from "expo-font";
+import { useNavigation } from "@react-navigation/native";
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { Auth } from "aws-amplify";
-import {useFonts} from "expo-font";
 
 export default function ProfileScreen() {
     const [user, setUser] = useState(undefined);
+    const navigation = useNavigation();
 
     const checkUser = async () => {
         try {
@@ -23,7 +25,7 @@ export default function ProfileScreen() {
     const onShare = async () => {
         try {
             const result = await Share.share({
-                message: 'React Native | A framework for building native apps using React',
+                message: 'Share Profile Message...',
             });
             if (result.action === Share.sharedAction) {
                 if (result.activityType) {
@@ -42,6 +44,7 @@ export default function ProfileScreen() {
     const signOut = () => {
         Auth.signOut();
     }
+
     let [fontsLoaded] = useFonts({
         'Montserrat': require('../../../assets/fonts/Montserrat-Regular.ttf'),
         'Montserrat-Medium': require('../../../assets/fonts/Montserrat-Medium.ttf'),
@@ -66,9 +69,7 @@ export default function ProfileScreen() {
                 <View style={styles.userInfoSection}>
                     <View style={{flexDirection: 'row', marginTop: 15}}>
                         <Avatar.Image
-                            source={{
-                                uri: 'https://c4.wallpaperflare.com/wallpaper/1023/336/834/5bd159f85e972-wallpaper-preview.jpg',
-                            }}
+                            source={require('../../../assets/images/user-logo.gif')}
                             size={80}
                         />
                         <View style={{marginLeft: 20}}>
@@ -83,16 +84,8 @@ export default function ProfileScreen() {
 
                 <View style={styles.userInfoSection}>
                     <View style={styles.row}>
-                        <MaterialCommunityIcons name="map-marker-radius" color="#3a90ff" size={20}/>
-                        <Text style={{color:"black", marginLeft: 20, fontFamily: 'Montserrat'}}>New Orleans, USA</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <MaterialCommunityIcons name="phone" color="#3a90ff" size={20}/>
-                        <Text style={{color:"black", marginLeft: 20, fontFamily: 'Montserrat'}}>+15044138933</Text>
-                    </View>
-                    <View style={styles.row}>
                         <MaterialCommunityIcons name="email" color="#3a90ff" size={20}/>
-                        <Text style={{color:"black", marginLeft: 20, fontFamily: 'Montserrat'}}>{user.email === undefined ? '' : user.email}</Text>
+                        <Text style={{color: "black", marginLeft: 20, fontFamily: 'Montserrat'}}>{user.email === undefined ? '' : user.email}</Text>
                     </View>
                 </View>
 
@@ -111,19 +104,19 @@ export default function ProfileScreen() {
                 {/*</View>*/}
 
                 <View style={styles.menuWrapper}>
-                    <TouchableRipple onPress={() => {}}>
-                        <View style={styles.menuItem}>
-                            <MaterialCommunityIcons name="credit-card" color="#d9202e" size={25}/>
-                            <Text style={styles.menuItemText}>Payment</Text>
-                        </View>
-                    </TouchableRipple>
+                    {/*<TouchableRipple onPress={() => {}}>*/}
+                    {/*    <View style={styles.menuItem}>*/}
+                    {/*        <MaterialCommunityIcons name="credit-card" color="#d9202e" size={25}/>*/}
+                    {/*        <Text style={styles.menuItemText}>Payment</Text>*/}
+                    {/*    </View>*/}
+                    {/*</TouchableRipple>*/}
                     <TouchableRipple onPress={onShare}>
                         <View style={styles.menuItem}>
                             <MaterialCommunityIcons name="share-outline" color="#d9202e" size={25}/>
                             <Text style={styles.menuItemText}>Tell Your Friends</Text>
                         </View>
                     </TouchableRipple>
-                    <TouchableRipple onPress={() => {}}>
+                    <TouchableRipple onPress={() => navigation.navigate('SupportScreen')}>
                         <View style={styles.menuItem}>
                             <MaterialCommunityIcons name="account-check-outline" color="#d9202e" size={25}/>
                             <Text style={styles.menuItemText}>Support</Text>

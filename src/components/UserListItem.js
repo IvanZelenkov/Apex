@@ -46,7 +46,7 @@ export default function UserListItem({ user }) {
         <TouchableOpacity onPress={onPress} style={styles.container}>
             <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Image style={styles.image} source={{ uri: `https://4kwallpapers.com/images/walls/thumbs_2t/8085.jpg` }}/>
+                    <Image style={styles.image} source={require('../../assets/images/user-logo.gif')}/>
                 </View>
                 <View style={{flexDirection: 'column', justifyContent: 'space-between'}}>
                     <Text style={styles.username}>{user.name}</Text>
@@ -66,9 +66,9 @@ const styles = StyleSheet.create({
         marginTop: wp('2%')
     },
     image: {
-        width: wp('17%'),
-        height: wp('17%'),
-        backgroundColor: '#777777',
+        width: wp('10%'),
+        height: wp('10%'),
+        backgroundColor: 'black',
         borderRadius: 99,
         marginRight: wp('3%')
     },
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat-Medium',
         fontSize: wp('4.5%'),
         paddingTop: wp('1%'),
-        marginBottom: wp('10%'),
+        marginBottom: wp('5%'),
         marginTop: wp('2%')
     },
     breaker: {
