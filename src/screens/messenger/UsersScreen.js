@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {StyleSheet, ActivityIndicator, View, FlatList, RefreshControl } from 'react-native';
+import { StyleSheet, ActivityIndicator, View, FlatList, RefreshControl } from 'react-native';
 import { useFonts } from 'expo-font';
 import { SafeAreaProvider } from "react-native-safe-area-context/src/SafeAreaContext";
 import { useChatContext } from "stream-chat-expo";

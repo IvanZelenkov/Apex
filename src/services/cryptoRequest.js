@@ -50,23 +50,3 @@ export const getFavoriteCrypto = async (numberOfCryptosPerPage = 1, cryptoIds, t
         console.log(error.message);
     }
 }
-
-export const getMarketNews = async () => {
-    const options = {
-        method: 'GET',
-        url: 'https://crypto-news-live11.p.rapidapi.com/all',
-        params: {page: '1', per_page: '5'},
-        headers: {
-            'X-RapidAPI-Key': 'c896b36245msh5f7010b3637c44cp14a62fjsn5cb74015600b',
-            'X-RapidAPI-Host': 'crypto-news-live11.p.rapidapi.com'
-        },
-    };
-
-    axios.request(options).then(function (response) {
-        // console.log("DATA: ")
-        // console.log(response.data);
-        // return response.data;
-    }).catch(function (error) {
-        console.error(error);
-    });
-}

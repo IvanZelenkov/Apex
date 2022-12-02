@@ -149,7 +149,8 @@ export default function MessengerNavigator() {
                                             size={30}
                                         />
                                     </TouchableOpacity>
-                                )
+                                ),
+                                headerTransparent: true
                             }}
                         />
                     </Stack.Navigator>

@@ -88,15 +88,15 @@ export default function ConverterScreen({ navigation }) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.header}>
-                <Ionicons
-                    name='chevron-back'
-                    color='black'
-                    size={30}
-                    style={styles.backArrow}
-                    onPress={() => navigation.goBack()}
-                />
-            </View>
+            {/*<View style={styles.header}>*/}
+            {/*    <Ionicons*/}
+            {/*        name='chevron-back'*/}
+            {/*        color='black'*/}
+            {/*        size={30}*/}
+            {/*        style={styles.backArrow}*/}
+            {/*        onPress={() => navigation.goBack()}*/}
+            {/*    />*/}
+            {/*</View>*/}
             <View style={{alignItems: 'center'}}>
                 <TextInput
                     style={styles.amountInputField}

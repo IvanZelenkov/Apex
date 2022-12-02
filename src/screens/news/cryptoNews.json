@@ -1,0 +1,298 @@
+{
+  "data": [
+    {
+      "news_url": "https://www.livebitcoinnews.com/brian-armstrong-says-he-was-wrong-about-btc/",
+      "image_url": "https://crypto.snapi.dev/images/v1/7/h/7h222-230867.jpg",
+      "title": "Brian Armstrong Says He Was Wrong About BTC",
+      "text": "In a recent interview, Brian Armstrong – the CEO of popular digital currency exchange Coinbase – commented that he “overestimated” bitcoin as a hedge against inflation, and he's learning now – like so many other traders – that bitcoin is not yet ready or mature enough to handle the hard-hitting economic factors that the country has",
+      "source_name": "LiveBitcoinNews",
+      "date": "Fri, 02 Dec 2022 08:00:01 -0500",
+      "topics": [],
+      "sentiment": "Negative",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://www.coinspeaker.com/bitcoin-mining-revenue-falls-november/",
+      "image_url": "https://crypto.snapi.dev/images/v1/g/2/g2122-230860.jpg",
+      "title": "Bitcoin Mining Revenue Falls 20% in November as Miners Struggle to Stay Profitable",
+      "text": "Once again, Bitcoin miners went significantly lower in terms of monthly revenue, raking in only about $472 million in November.",
+      "source_name": "Coinspeaker",
+      "date": "Fri, 02 Dec 2022 07:51:58 -0500",
+      "topics": [
+        "mining"
+      ],
+      "sentiment": "Negative",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://dailyhodl.com/2022/12/02/bitcoin-whale-abruptly-moves-over-101000000-in-btc-heres-where-the-cryptos-going/",
+      "image_url": "https://crypto.snapi.dev/images/v1/e/2/whale-abruptly-moves-101jpgw1024-230855.jpg",
+      "title": "Bitcoin Whale Abruptly Moves Over $101,000,000 in BTC – Here's Where the Crypto's Going",
+      "text": "A crypto whale is suddenly moving more than $101 million in Bitcoin (BTC) as the leading digital asset's price sees a small increase.",
+      "source_name": "The Daily Hodl",
+      "date": "Fri, 02 Dec 2022 07:45:45 -0500",
+      "topics": [
+        "whales"
+      ],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://www.benzinga.com/markets/cryptocurrency/22/12/29935389/bitcoin-crypto-payments-now-enabled-on-stripe-in-boost-to-web3-companies-what-you-should-k?SNAPI",
+      "image_url": "https://crypto.snapi.dev/images/v1/o/3/shutterstock-1937460505-230853.jpg",
+      "title": "Bitcoin, Crypto Payments Now Enabled On Stripe In Boost To Web3 Companies: What You Should Know",
+      "text": "San Francisco-based payments company Stripe announced on Thursday that it is rolling out a service that makes it easier for Web3 companies to accept payments in cryptocurrencies like Bitcoin (CRYPTO: BTC).",
+      "source_name": "Benzinga",
+      "date": "Fri, 02 Dec 2022 07:37:32 -0500",
+      "topics": [],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://thenewscrypto.com/crypto-advocate-novogratz-withdrawalls-his-predicts-on-bitcoin/?SNAPI",
+      "image_url": "https://crypto.snapi.dev/images/v1/k/n/crazy-to-see-bitcoin-dominance-so-low-in-a-bear-market-btc-is-losing-1-230842.jpg",
+      "title": "Crypto Advocate Novogratz Withdrawalls His Predicts on Bitcoin",
+      "text": "Billionaire Mike Novogratz, one of the cryptocurrency advocates, is now included in the catastrophic collapse scenario. Novogratz pulled off his",
+      "source_name": "TheNewsCrypto",
+      "date": "Fri, 02 Dec 2022 07:21:46 -0500",
+      "topics": [],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://www.coinspeaker.com/bitcoin-depot-spac-deal-revenue/",
+      "image_url": "https://crypto.snapi.dev/images/v1/h/d/crypto19-230833.jpg",
+      "title": "Bitcoin Depot to Push Forward with SPAC Deal Following Strong Revenue Growth",
+      "text": "North America's largest Bitcoin operator Bitcoin Depot revealed plans to complete its SPAC deal amid a bearish crypto market.",
+      "source_name": "Coinspeaker",
+      "date": "Fri, 02 Dec 2022 07:02:42 -0500",
+      "topics": [],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://finbold.com/bitcoins-next-bullish-advance-requires-breaking-over-this-crucial-barrier/?SNAPI",
+      "image_url": "https://crypto.snapi.dev/images/v1/h/p/bitcoins-next-bullish-advance-requires-breaking-over-this-crucial-barrier-230819.jpg",
+      "title": "Bitcoin's next bullish advance requires breaking over this crucial barrier",
+      "text": "As the cryptocurrency market continues to switch between the red and green waves in an effort to overcome the consequences of the FTX-induced collapse that has wreaked havoc across the landscape, analysts are trying to predict the future of Bitcoin (BTC).",
+      "source_name": "Finbold",
+      "date": "Fri, 02 Dec 2022 06:38:23 -0500",
+      "topics": [],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://cointelegraph.com/news/bitcoin-miner-outflow-ratio-hits-6-month-high-in-new-threat-to-btc-price",
+      "image_url": "https://crypto.snapi.dev/images/v1/5/r/840-ahr0chm6ly9zmy5jb2ludgvszwdyyxbolmnvbs91cgxvywrzlziwmjitmtivnjhimwvlm2qtmdy0ny00ntiyltkxntityzq0otcxmmzjy2zjlmpwzw-230813.jpg",
+      "title": "Bitcoin miner outflow ratio hits 6-month high in new threat to BTC price",
+      "text": "Bitcoin miners are upping sales, but BTC price metrics hint that a relief rally could be next.",
+      "source_name": "Cointelegraph",
+      "date": "Fri, 02 Dec 2022 06:27:58 -0500",
+      "topics": [
+        "mining"
+      ],
+      "sentiment": "Negative",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://markets.businessinsider.com/news/currencies/mike-novogratz-bitcoin-price-prediction-galaxy-digital-federal-reserve-tightening-2022-12",
+      "image_url": "https://crypto.snapi.dev/images/v1/j/h/5f92fdc2212113001874073bformatjpeg-230844.jpg",
+      "title": "Mike Novogratz backs off his call for bitcoin to hit $500,000 in 5 years, blaming the Fed's rate hikes",
+      "text": "The Federal Reserve's interest-rate increases have suppressed bitcoin's value this year, the Galaxy Digital CEO said.",
+      "source_name": "Business Insider",
+      "date": "Fri, 02 Dec 2022 06:19:00 -0500",
+      "topics": [],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://www.crypto-news-flash.com/bitcoin-price-stable-at-16900-this-is-when-the-bottom-will-be-in-and-you-can-invest/",
+      "image_url": "https://crypto.snapi.dev/images/v1/u/f/bitcoin-2666200-1920-230806.jpg",
+      "title": "Bitcoin Price Stable at $16,900 – This is When the Bottom will be in and you can Invest",
+      "text": "Crypto analyst Jason Pizzino says Bitcoin (BTC) price still has room to fall Pizzino projects based on historical data that the bear market could last up to the end of Q1 2023 The Bitcoin (BTC) price bottom is not yet in according to popular crypto market analyst Jason Pizzino despite the benchmark cryptocurrency finding some",
+      "source_name": "CryptoNewsFlash",
+      "date": "Fri, 02 Dec 2022 06:14:49 -0500",
+      "topics": [],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://newsbtc.com/news/bitcoin/will-bitcoin-btc-see-a-christmas-rally-heres-what-to-watch/",
+      "image_url": "https://crypto.snapi.dev/images/v1/n/f/traxer-w3tanrpcl9m-unsplash-230802.jpg",
+      "title": "Will Bitcoin (BTC) See A Christmas Rally? Here's What To Watch",
+      "text": "After the recent speech by US Federal Reserve chairman Jerome Powell, there was a price firework on the stock market, from which Bitcoin also benefited. As a result, the BTC price has climbed to over $17,000.",
+      "source_name": "NewsBTC",
+      "date": "Fri, 02 Dec 2022 06:01:55 -0500",
+      "topics": [],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://www.coinspeaker.com/bitcoin-price-10k-2023-mobius/",
+      "image_url": "https://crypto.snapi.dev/images/v1/e/z/crypto15-230784.jpg",
+      "title": "Bitcoin Price Could Drop to $10K in 2023, Veteran Investor Mark Mobius Forecasts",
+      "text": "Bitcoin prices exchanged around $16,900 during the Asian trading session, up approximately 2.4 percent in the past seven days.",
+      "source_name": "Coinspeaker",
+      "date": "Fri, 02 Dec 2022 05:30:22 -0500",
+      "topics": [],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://www.fool.com/investing/2022/12/02/how-bitcoin-could-reach-a-new-all-time-high/",
+      "image_url": "https://crypto.snapi.dev/images/v1/b/i/bitcoin-tether-lugano-300x200-230414-230822.jpg",
+      "title": "How Bitcoin Could Reach a New All-Time High",
+      "text": "Once written off by national governments, Bitcoin just might become their escape.",
+      "source_name": "The Motley Fool",
+      "date": "Fri, 02 Dec 2022 05:30:00 -0500",
+      "topics": [],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://cryptopotato.com/bitcoin-bulls-fight-for-17k-ethereum-pow-ethw-skyrockets-20-market-watch/",
+      "image_url": "https://crypto.snapi.dev/images/v1/n/4/bullsbears-cover-230769.jpg",
+      "title": "Bitcoin Bulls Fight for $17K, Ethereum POW (ETHW) Skyrockets 20%: Market Watch",
+      "text": "Ethereum POW and Terra Classic have both surged by double digits today.",
+      "source_name": "CryptoPotato",
+      "date": "Fri, 02 Dec 2022 04:50:06 -0500",
+      "topics": [],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": [
+        "BTC",
+        "ETH",
+        "ETHW"
+      ]
+    },
+    {
+      "news_url": "https://www.proactiveinvestors.co.uk/companies/news/1000087/bitcoin-and-ethereum-end-week-in-the-green-but-true-recovery-is-a-long-way-off-1000087.html?SNAPI",
+      "image_url": "https://crypto.snapi.dev/images/v1/s/1/crypto10-230766.jpg",
+      "title": "Bitcoin and Ethereum end week in the green, but true recovery is a long way off",
+      "text": "The cryptocurrency markets have ended the seven-day period in a stronger position to where it started off, although there is scarce evidence of an imminent rally to resuscitate global market capitalisation. At US$853.5bn, total market value across all crypto assets representing close to 3% gains week on week.",
+      "source_name": "Proactive Investors",
+      "date": "Fri, 02 Dec 2022 04:45:07 -0500",
+      "topics": [],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ]
+    },
+    {
+      "news_url": "https://www.proactiveinvestors.co.uk/companies/news/1000087/bitcoin-and-ethereum-end-the-week-in-the-green-but-true-recovery-is-a-long-way-off-1000087.html?SNAPI",
+      "image_url": "https://crypto.snapi.dev/images/v1/u/c/crypto9-230764.jpg",
+      "title": "Bitcoin and Ethereum end the week in the green, but true recovery is a long way off",
+      "text": "The cryptocurrency markets have ended the seven-day period in a stronger position to where it started off, although there is scarce evidence of an imminent rally to resuscitate global market capitalisation. At US$853.5bn, total market value across all crypto assets representing close to 3% gains week on week.",
+      "source_name": "Proactive Investors",
+      "date": "Fri, 02 Dec 2022 04:44:04 -0500",
+      "topics": [],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ]
+    },
+    {
+      "news_url": "https://dailyhodl.com/2022/12/02/crypto-analyst-jason-pizzino-forecasts-bitcoin-likely-trajectory-through-february-heres-his-outlook/",
+      "image_url": "https://crypto.snapi.dev/images/v1/s/e/btc-dive-lower-before-jpgw1024-230742.jpg",
+      "title": "Crypto Analyst Jason Pizzino Forecasts Bitcoin's Likely Trajectory Through February – Here's His Outlook",
+      "text": "Popular crypto trader Jason Pizzino says he believes that Bitcoin (BTC), the leading digital asset by market cap, has more room to fall. In a new video update, Pizzino tells his 279,000 YouTube subscribers that based on historical precedence, previous bear markets have presented buying opportunities for traders that lasted between five and nine months.",
+      "source_name": "The Daily Hodl",
+      "date": "Fri, 02 Dec 2022 03:04:39 -0500",
+      "topics": [],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://ambcrypto.com/bitcoin-miners-continue-to-face-the-heat-but-whats-the-way-forward/",
+      "image_url": "https://crypto.snapi.dev/images/v1/a/l/bruh-e1669959831153-230733.png",
+      "title": "Bitcoin miners continue to face the heat, but what's the way forward",
+      "text": "Bitcoin miners face the heat as selling pressure rises Daily activity and velocity declines, however, retail investors show faith Bitcoin miners were one of those sections of the crypto community who were impacted massively by the crypto winter, thanks to the selling pressure.",
+      "source_name": "AMBCrypto",
+      "date": "Fri, 02 Dec 2022 02:33:35 -0500",
+      "topics": [
+        "mining"
+      ],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://coinpedia.org/price-analysis/this-is-when-bitcoin-btc-price-may-raise-more-than-12-to-reach-20000/",
+      "image_url": "https://crypto.snapi.dev/images/v1/f/g/article-post-images-26-230729.png",
+      "title": "This is When Bitcoin's (BTC) Price May Raise More Than 12% to Reach $20,000!",
+      "text": "Bitcoin price yet again slashed below $17,000 after struggling to hold above these levels for a while. Meanwhile, the bears continue to remain moderately passive which denotes the possibility of a minor upswing shortly.",
+      "source_name": "CoinPedia",
+      "date": "Fri, 02 Dec 2022 01:49:07 -0500",
+      "topics": [],
+      "sentiment": "Neutral",
+      "type": "Article",
+      "tickers": [
+        "BTC"
+      ]
+    },
+    {
+      "news_url": "https://cryptonews.com/news/bitcoin-price-ethereum-prediction-fantom-rockets-over-35.htm",
+      "image_url": "https://crypto.snapi.dev/images/v1/a/d/copy-of-copy-of-copy-of-copy-of-farm-to-table-60-230722.jpg",
+      "title": "Bitcoin Price and Ethereum Prediction; Fantom Rockets Over 35%",
+      "text": "Bitcoin, the leading cryptocurrency, struggled to break above the $17,250 level on December 2, and it is now heading lower to $16,900. Similarly, Ethereum, the second-most valuable cryptocurrency, has fallen after being rejected at the $1,300 level and is currently consolidating near $1,275.",
+      "source_name": "Cryptonews",
+      "date": "Fri, 02 Dec 2022 00:57:00 -0500",
+      "topics": [],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": [
+        "BTC",
+        "ETH",
+        "FTM"
+      ]
+    }
+  ]
+}

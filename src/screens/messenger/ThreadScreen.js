@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {ActivityIndicator, Text, View} from "react-native";
+import {ActivityIndicator, View} from "react-native";
 import { Channel, useChatContext, Thread } from "stream-chat-react-native-core";
 
 export default function ThreadScreen({ route }) {

@@ -4,40 +4,33 @@ import axios from "axios";
 import NewsItem from '../../components/NewsItem';
 import { getMarketNews } from '../../services/cryptoRequest';
 import { useFonts } from "expo-font";
+import cryptoNews from './cryptoNews.json';
 
 export default function NewsScreen() {
-	const [data, setData] = useState([]);
+	const [cryptoNewsData, setCryptoNewsData] = useState([]);
 	const [selectedNewsData, setSelectedNewsData] = useState(null);
 	const [loading, setLoading] = useState(false);
 
-	// const fetchCrypto = async () => {
-	// 	if (loading) return;
-	//
-	// 	setLoading(true);
-	// 	const marketData = await getMarketNews();
-	//
-	// 	console.log(marketData);
-	//
-	// 	// setData((currentCrypto) => ([...currentCrypto, ...marketData]));
-	// 	setLoading(false);
-	// }
-
 	const getMarketNews = async () => {
-		const options = {
-			method: 'GET',
-			url: 'https://crypto-news-live11.p.rapidapi.com/all',
-			params: {page: '1', per_page: '50'},
-			headers: {
-				'X-RapidAPI-Key': 'c896b36245msh5f7010b3637c44cp14a62fjsn5cb74015600b',
-				'X-RapidAPI-Host': 'crypto-news-live11.p.rapidapi.com'
-			},
-		};
+		// API is not working anymore. It will be replaced with raw data.
+		// const options = {
+		// 	method: 'GET',
+		// 	url: 'https://crypto-news-live11.p.rapidapi.com/all',
+		// 	params: {page: '1', per_page: '50'},
+		// 	headers: {
+		// 		'X-RapidAPI-Key': 'c896b36245msh5f7010b3637c44cp14a62fjsn5cb74015600b',
+		// 		'X-RapidAPI-Host': 'crypto-news-live11.p.rapidapi.com'
+		// 	},
+		// };
 
-		axios.request(options).then(function (response) {
-			setData(response.data.news);
-		}).catch(function (error) {
-			console.error(error);
-		});
+		// axios.request(options).then(function (response) {
+		// 	console.log(response)
+		// 	setData(response.data.news);
+		// }).catch(function (error) {
+		// 	console.error(error);
+		// });
+
+		setCryptoNewsData(cryptoNews.data);
 	}
 
 	const refreshNews = async () => {
@@ -63,7 +56,7 @@ export default function NewsScreen() {
 		getMarketNews();
 	}, []);
 
-	if (!fontsLoaded || data.length === 0) {
+	if (!fontsLoaded || cryptoNewsData.length === 0) {
 		return (
 			<View style={{flex: 1, justifyContent: 'center'}}>
 				<ActivityIndicator size={'large'} color={'#d9202e'}/>
@@ -74,15 +67,15 @@ export default function NewsScreen() {
 	return (
 		<SafeAreaView style={styles.container}>
 			<FlatList
-				keyExtractor={(item) => item.id}
-				data={data}
+				keyExtractor={(item) => item.title}
+				data={cryptoNewsData}
 				renderItem={({ item }) => (
 					<NewsItem
 						title={item.title}
-						link={item.link}
-						imageURL={item.img}
+						link={item.news_url}
+						imageURL={item.image_url}
 						pubDate={item.date}
-						id={item.id}
+						id={item.title}
 						onPress={() => openNews(item)}
 					/>
 				)}
