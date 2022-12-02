@@ -44,7 +44,7 @@ export default function FavoriteCryptoScreen() {
             fetchFavoriteCrypto();
     }, [favoriteCryptoIds]);
 
-	if (!fontsLoaded || favoriteCrypto.length === 0) {
+	if (!fontsLoaded) {
 		return (
 			<View style={{flex: 1, justifyContent: 'center'}}>
 				<ActivityIndicator size={'large'} color={'#d9202e'}/>
