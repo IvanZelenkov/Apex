@@ -5,7 +5,7 @@ import { Auth } from "aws-amplify";
 
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton';
-import {widthPercentageToDP as wp} from "react-native-responsive-screen";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 export default function ForgotPasswordScreen() {
     const navigation = useNavigation();

@@ -16,12 +16,17 @@ export default function SignUpScreen() {
     const pwd = watch('password');
 
     const onRegisterPress = async (data) => {
+        console.log(data)
         const { username, password, email, name } = data;
         try {
             await Auth.signUp({
-                username,
-                password,
-                attributes: { email, name, preferred_username: username },
+                username: email,
+                password: password,
+                attributes: {
+                    email: email,
+                    name: name,
+                    preferred_username: username
+                }
             });
 
             navigation.navigate('ConfirmEmail', { username });

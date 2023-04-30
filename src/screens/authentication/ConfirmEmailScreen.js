@@ -11,13 +11,13 @@ export default function ConfirmEmailScreen() {
     const route = useRoute();
     const navigation = useNavigation();
     const {control, handleSubmit, watch} = useForm({
-        defaultValues: {username: route?.params?.username},
+        defaultValues: { email: route?.params?.email },
     });
-    const username = watch('username');
+    const email = watch('email');
 
     const onConfirmPress = async data => {
         try {
-            await Auth.confirmSignUp(data.username, data.code);
+            await Auth.confirmSignUp(data.email, data.code);
             navigation.navigate('SignIn');
         } catch (error) {
             Alert.alert('ERROR', error.message);
@@ -30,7 +30,7 @@ export default function ConfirmEmailScreen() {
 
     const onResendPress = async () => {
         try {
-            await Auth.resendSignUp(username);
+            await Auth.resendSignUp(email);
             Alert.alert('Success', 'Code was resent to your email');
         } catch (error) {
             Alert.alert('ERROR', error.message);
@@ -47,10 +47,10 @@ export default function ConfirmEmailScreen() {
             <View style={styles.container}>
                 <Text style={styles.title}>Confirm your email</Text>
                 <CustomInput
-                    name="username"
-                    placeholder="Username"
+                    name="email"
+                    placeholder="Email"
                     control={control}
-                    rules={{required: 'Username code is required'}}
+                    rules={{required: 'Email is required'}}
                 />
                 <CustomInput
                     name="code"

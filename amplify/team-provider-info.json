@@ -1,14 +1,14 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-apex-staging-50438-authRole",
-      "UnauthRoleArn": "arn:aws:iam::981684844178:role/amplify-apex-staging-50438-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::981684844178:role/amplify-apex-staging-50438-authRole",
+      "AuthRoleName": "amplify-amplifyb8c1393f724c4-staging-201233-authRole",
+      "UnauthRoleArn": "arn:aws:iam::981684844178:role/amplify-amplifyb8c1393f724c4-staging-201233-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::981684844178:role/amplify-amplifyb8c1393f724c4-staging-201233-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-apex-staging-50438-deployment",
-      "UnauthRoleName": "amplify-apex-staging-50438-unauthRole",
-      "StackName": "amplify-apex-staging-50438",
-      "StackId": "arn:aws:cloudformation:us-east-1:981684844178:stack/amplify-apex-staging-50438/b13ff580-54eb-11ed-b7c5-0ef7a0ce7689",
+      "DeploymentBucketName": "amplify-amplifyb8c1393f724c4-staging-201233-deployment",
+      "UnauthRoleName": "amplify-amplifyb8c1393f724c4-staging-201233-unauthRole",
+      "StackName": "amplify-amplifyb8c1393f724c4-staging-201233",
+      "StackId": "arn:aws:cloudformation:us-east-1:981684844178:stack/amplify-amplifyb8c1393f724c4-staging-201233/579673c0-e793-11ed-a090-0a7639456aa1",
       "AmplifyAppId": "d38riv7wqn0yt"
     },
     "categories": {

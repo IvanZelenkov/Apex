@@ -1,5 +1,5 @@
 import { useRef, useMemo, useState, useEffect } from 'react';
-import {StyleSheet, FlatList, SafeAreaView, RefreshControl, ActivityIndicator, View, Dimensions} from 'react-native';
+import { StyleSheet, FlatList, SafeAreaView, RefreshControl, ActivityIndicator, View, Dimensions } from 'react-native';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useFonts } from 'expo-font';
 
@@ -64,7 +64,7 @@ export default function CryptoScreen() {
 					keyExtractor={(item) => item.id}
 					data={data}
 					renderItem={({ item }) => (
-						<CurrencyItem 
+						<CurrencyItem
 							name={item.name}
 							abbreviation={item.symbol}
 							currentPrice={item.current_price}
@@ -87,6 +87,7 @@ export default function CryptoScreen() {
 				ref={bottomSheetModalRef}
 				index={0}
 				snapPoints={snapPoints}
+				enablePanDownToClose={true}
 				style={styles.bottomSheet}
 			>
 				{selectedCurrencyData ? ( <Chart
@@ -97,7 +98,7 @@ export default function CryptoScreen() {
 					pricePercentageChange7days={selectedCurrencyData.price_change_percentage_7d_in_currency}
 					logo={selectedCurrencyData.image}
 					sparkline={selectedCurrencyData.sparkline_in_7d.price}
-					/>) : null}
+				/>) : null}
 			</BottomSheetModal>
 		</BottomSheetModalProvider>
 	);

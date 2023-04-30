@@ -1,4 +1,4 @@
-import {ActivityIndicator, Text, TouchableOpacity, View} from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context/src/SafeAreaContext";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { OverlayProvider, Chat } from "stream-chat-expo";
@@ -13,11 +13,11 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import MessengerScreen from './MessengerScreen';
 import UsersScreen from "./UsersScreen";
 import ChannelScreen from "./ChannelScreen"
-import {useFonts} from "expo-font";
+import { useFonts } from "expo-font";
 
 const Stack = createNativeStackNavigator();
 
-const API_KEY = '4jfzt7sv7jnt';
+const API_KEY = process.env.STREAM_API_KEY;
 const stream_client = StreamChat.getInstance(API_KEY);
 
 export default function MessengerNavigator() {
